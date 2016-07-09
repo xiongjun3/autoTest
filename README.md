@@ -6,5 +6,7 @@
 * c
 
 ```python
-  print a
+  sum = 0
+  for i in range(100)
+  print sum += i
 ```

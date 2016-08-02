@@ -23,5 +23,4 @@ def getSmsCode(tel):
 	return code
 
 
-print getSmsCode("18811145064") 
   

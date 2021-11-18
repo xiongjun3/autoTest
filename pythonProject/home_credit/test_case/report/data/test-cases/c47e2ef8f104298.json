@@ -1,0 +1,74 @@
+{
+  "uid" : "c47e2ef8f104298",
+  "name" : "test_import_enrollment",
+  "fullName" : "test_case.TestPolicy#test_import_enrollment",
+  "historyId" : "e61075ceffbdbb2e78b91e4681910a69",
+  "time" : {
+    "start" : 1636705240513,
+    "stop" : 1636705259630,
+    "duration" : 19117
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "manage_logs",
+    "time" : {
+      "start" : 1636705196871,
+      "stop" : 1636705196872,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "上传csv文件"
+  }, {
+    "name" : "feature",
+    "value" : "policy页面功能"
+  }, {
+    "name" : "suite",
+    "value" : "test_case"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPolicy"
+  }, {
+    "name" : "host",
+    "value" : "xiongjundeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "11076-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c47e2ef8f104298.json",
+  "parameterValues" : [ ]
+}

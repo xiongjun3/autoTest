@@ -1,0 +1,59 @@
+{
+  "uid" : "df2934379e9e0339",
+  "name" : "test_policy_detail_birth",
+  "fullName" : "test_case.TestPolicy#test_policy_detail_birth",
+  "historyId" : "28462fb9d4771f21bec057286e880afa",
+  "time" : {
+    "start" : 1636975103729,
+    "stop" : 1636975110691,
+    "duration" : 6962
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "customer policy页面功能"
+  }, {
+    "name" : "story",
+    "value" : "检查coverage start date"
+  }, {
+    "name" : "suite",
+    "value" : "test_case"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPolicy"
+  }, {
+    "name" : "host",
+    "value" : "xiongjundeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "20830-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "df2934379e9e0339.json",
+  "parameterValues" : [ ]
+}

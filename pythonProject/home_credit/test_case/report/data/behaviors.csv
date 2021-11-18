@@ -1,0 +1,8 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"","policy_detial页面功能","点击policy_detail页的coc文件","0","0","1","0","0"
+"","policy页面功能","上传csv文件","0","0","1","0","0"
+"","policy页面功能","logout","0","0","1","0","0"
+"","policy页面功能","按start_date过滤","0","0","1","0","0"
+"","policy页面功能","按protected状态过滤","0","0","1","0","0"
+"","policy页面功能","搜索功能","0","0","1","0","0"
+"","policy_detial页面功能","policy detail页面点击返回按钮回到policy list页面","0","0","1","0","0"

@@ -1,0 +1,61 @@
+[ {
+  "uid" : "3c5d970b097a826e",
+  "name" : "test_policy_detail_policystatus_protected",
+  "time" : {
+    "start" : 1636975080652,
+    "stop" : 1636975087857,
+    "duration" : 7205
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "43ab6f5d48f945df",
+  "name" : "test_policy_detail_gender",
+  "time" : {
+    "start" : 1636975073372,
+    "stop" : 1636975080649,
+    "duration" : 7277
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "68e893d27d42513e",
+  "name" : "test_policy_detail_policystatus_expired",
+  "time" : {
+    "start" : 1636975087860,
+    "stop" : 1636975095181,
+    "duration" : 7321
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "df2934379e9e0339",
+  "name" : "test_policy_detail_birth",
+  "time" : {
+    "start" : 1636975103729,
+    "stop" : 1636975110691,
+    "duration" : 6962
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dd17a8f65a55539d",
+  "name" : "test_policy_detail",
+  "time" : {
+    "start" : 1636975095183,
+    "stop" : 1636975103726,
+    "duration" : 8543
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e0a5b418b0509e07",
+  "name" : "test_policy_detail_fullname",
+  "time" : {
+    "start" : 1636975065667,
+    "stop" : 1636975073370,
+    "duration" : 7703
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

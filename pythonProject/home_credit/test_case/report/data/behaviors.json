@@ -1,0 +1,132 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "policy页面功能",
+    "children" : [ {
+      "name" : "搜索功能",
+      "children" : [ {
+        "name" : "test_search",
+        "uid" : "1c4660ef8128997d",
+        "parentUid" : "c5ad2421c5673a39f88da4c82034b5c2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636705196872,
+          "stop" : 1636705210116,
+          "duration" : 13244
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c5ad2421c5673a39f88da4c82034b5c2"
+    }, {
+      "name" : "按protected状态过滤",
+      "children" : [ {
+        "name" : "test_filter_protected",
+        "uid" : "38a05a64f852dc45",
+        "parentUid" : "cc0fb521f0c30d25fbe3d310ee0d80a1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636705210119,
+          "stop" : 1636705225056,
+          "duration" : 14937
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "cc0fb521f0c30d25fbe3d310ee0d80a1"
+    }, {
+      "name" : "按start_date过滤",
+      "children" : [ {
+        "name" : "test_filter_startdate",
+        "uid" : "ef43e96d055f9050",
+        "parentUid" : "0481404c7568b469e8ccd8e06bceda4f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636705225059,
+          "stop" : 1636705240510,
+          "duration" : 15451
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "0481404c7568b469e8ccd8e06bceda4f"
+    }, {
+      "name" : "上传csv文件",
+      "children" : [ {
+        "name" : "test_import_enrollment",
+        "uid" : "c47e2ef8f104298",
+        "parentUid" : "da4f2967a3372c88d22cf8a57d8345f1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636705240513,
+          "stop" : 1636705259630,
+          "duration" : 19117
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "da4f2967a3372c88d22cf8a57d8345f1"
+    }, {
+      "name" : "logout",
+      "children" : [ {
+        "name" : "test_logout",
+        "uid" : "2f8141c04ae29fb6",
+        "parentUid" : "779c1336557ea7e8b2367963b665c4be",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636705259633,
+          "stop" : 1636705275423,
+          "duration" : 15790
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "779c1336557ea7e8b2367963b665c4be"
+    } ],
+    "uid" : "2be3aecf853a62cc037cb50243413180"
+  }, {
+    "name" : "policy_detial页面功能",
+    "children" : [ {
+      "name" : "点击policy_detail页的coc文件",
+      "children" : [ {
+        "name" : "test_view_coc",
+        "uid" : "df4f5759a21fa2fc",
+        "parentUid" : "65a641e332b8a80ec9f0455a680964f6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636705275427,
+          "stop" : 1636705293486,
+          "duration" : 18059
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "65a641e332b8a80ec9f0455a680964f6"
+    }, {
+      "name" : "policy detail页面点击返回按钮回到policy list页面",
+      "children" : [ {
+        "name" : "test_gobackto_policy_list",
+        "uid" : "35312a07f9b9bc85",
+        "parentUid" : "af7205c893b32277b43981a1af0bb3ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636705293489,
+          "stop" : 1636705307483,
+          "duration" : 13994
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "af7205c893b32277b43981a1af0bb3ef"
+    } ],
+    "uid" : "fbe7f1258d1cf2e08d75eaf819d842d1"
+  } ]
+}

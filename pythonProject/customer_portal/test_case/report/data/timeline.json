@@ -1,0 +1,91 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "xiongjundeMacBook-Pro.local",
+    "children" : [ {
+      "name" : "20830-MainThread",
+      "children" : [ {
+        "name" : "test_policy_detail",
+        "uid" : "dd17a8f65a55539d",
+        "parentUid" : "162ae5835fbe60fa3d9e031f794e6eb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636975095183,
+          "stop" : 1636975103726,
+          "duration" : 8543
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_policy_detail_policystatus_expired",
+        "uid" : "68e893d27d42513e",
+        "parentUid" : "162ae5835fbe60fa3d9e031f794e6eb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636975087860,
+          "stop" : 1636975095181,
+          "duration" : 7321
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_policy_detail_birth",
+        "uid" : "df2934379e9e0339",
+        "parentUid" : "162ae5835fbe60fa3d9e031f794e6eb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636975103729,
+          "stop" : 1636975110691,
+          "duration" : 6962
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_policy_detail_policystatus_protected",
+        "uid" : "3c5d970b097a826e",
+        "parentUid" : "162ae5835fbe60fa3d9e031f794e6eb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636975080652,
+          "stop" : 1636975087857,
+          "duration" : 7205
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_policy_detail_fullname",
+        "uid" : "e0a5b418b0509e07",
+        "parentUid" : "162ae5835fbe60fa3d9e031f794e6eb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636975065667,
+          "stop" : 1636975073370,
+          "duration" : 7703
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_policy_detail_gender",
+        "uid" : "43ab6f5d48f945df",
+        "parentUid" : "162ae5835fbe60fa3d9e031f794e6eb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1636975073372,
+          "stop" : 1636975080649,
+          "duration" : 7277
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "162ae5835fbe60fa3d9e031f794e6eb4"
+    } ],
+    "uid" : "21d5f04c78a038357fddee32f51aecb9"
+  } ]
+}

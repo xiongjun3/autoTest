@@ -1,0 +1,7 @@
+[ {
+  "values" : [ "chrome" ],
+  "name" : "browser"
+}, {
+  "values" : [ "https://dashboard.qa.axinan.com/" ],
+  "name" : "domain"
+} ]

@@ -13,25 +13,16 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class BasePage:
     def get_config(self):
+        # python3里面自带configparser模块来读取ini文件
+        # 读取iselenium中的Chrome driver的路径，不然执行的时候会报错
         config = configparser.ConfigParser()
-        config.read(os.path.join(os.environ['HOME'],'iselenium.ini'))
+        # 用户的主目录
+        homepath = os.environ['HOME']
+        # os.path.join用来拼接，最终是iselenium.ini文件的路径
+        configpath = os.path.join(homepath,'islenium.ini')
+        config.read(configpath)
+        # config.read(os.path.join(os.environ['HOME'],'iselenium.ini'))
         return config
-
-    # def setUp(self):
-    #     config = self.get_config()
-    #
-    #     try:
-    #         using_headless = os.environ["using_headless"]
-    #     except KeyError:
-    #         using_headless = None
-    #         print('没有配置环境变量 using_headless,按照有界面方式运行自动化测试')
-    #
-    #     chrome_options = Options()
-    #     if using_headless is not None and using_headless.lower() == 'true':
-    #         print("使用无界面方式运行")
-    #         # add_argument 添加启动参数
-    #         chrome_options.add_argument("--headless")
-    #     self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'), options=chrome_options)
 
     # 防止重复初始化webdriver，需要一个构造函数，如果形参base_driver==none,就初始化一个，如果已经有driver了，就把driver赋值给base_driver
     # 则需要PageObject返回处也加一个driver参数
@@ -54,7 +45,7 @@ class BasePage:
         # driver前加self，让其变成一个实例变量，如是只是一个变量是传不到子类中去的
 
         if base_driver == None:
-
+            # 传入两个参数，第一个参数是driver的路径，
             self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
                                            options=chrome_options)
             # self.driver = webdriver.Chrome()

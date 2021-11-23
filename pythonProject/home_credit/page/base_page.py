@@ -1,4 +1,5 @@
 #  -*-  coding: utf-8  -*-
+import configparser
 import os
 import time
 
@@ -11,6 +12,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage:
+    def get_config(self):
+        config = configparser.ConfigParser()
+        config.read(os.path.join(os.environ['HOME'],'iselenium.ini'))
+        return config
 
     # def setUp(self):
     #     try:

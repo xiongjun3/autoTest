@@ -5,6 +5,7 @@ import allure
 
 @allure.feature("policy页面功能")
 class TestPolicy:
+
     @allure.story("搜索功能")
     def test_search(self):
         self.displayid = "MICIHCA67497916"

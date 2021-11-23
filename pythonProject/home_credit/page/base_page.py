@@ -1,6 +1,9 @@
 #  -*-  coding: utf-8  -*-
+import os
 import time
+
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions
@@ -8,6 +11,21 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage:
+
+    # def setUp(self):
+    #     try:
+    #         using_headless = os.environ["using_headless"]
+    #     except KeyError:
+    #         using_headless = None
+    #         print('没有配置环境变量 using_headless,按照有界面方式运行自动化测试')
+    #
+    #     chrome_options = Options()
+    #     if using_headless is not None and using_headless.lower() == 'true':
+    #         print("使用无界面方式运行")
+    #         # add_argument 添加启动参数
+    #         chrome_options.add_argument("--headless")
+    #     self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'), options=chrome_options)
+
     # 防止重复初始化webdriver，需要一个构造函数，如果形参base_driver==none,就初始化一个，如果已经有driver了，就把driver赋值给base_driver
     # 则需要PageObject返回处也加一个driver参数
     _base_url = "https://dashboard.qa.axinan.com/platform/policy"

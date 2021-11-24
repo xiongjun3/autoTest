@@ -45,9 +45,14 @@ class BasePage:
                                            options=chrome_options)
             self.driver.get(self._base_url)
 
+            configpath='/Users/xiongjun/python_auto/pythonProject/customer_portal/config'
+            confpath = os.path.join(configpath,'local_storage.yaml')
+
             # 写local storage
             # 从local_storage文件中获取HomeCredit_qa_jwt
-            local_storage = yaml.safe_load(open("../config/local_storage.yaml"))
+
+            local_storage = yaml.safe_load(open(confpath))
+            # local_storage = yaml.safe_load(open("../config/local_storage.yaml"))
             HomeCredit_qa_jwt = local_storage["HomeCredit_qa_jwt"]
             HomeCredit_qa_customerName = local_storage["HomeCredit_qa_customerName"]
             HomeCredit_qa_customerEmail = local_storage["HomeCredit_qa_customerEmail"]

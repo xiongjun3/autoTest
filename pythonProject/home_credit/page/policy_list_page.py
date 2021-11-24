@@ -11,7 +11,7 @@ class PolicyPage(BasePage):
     def goto_policy_detail(self):
         time.sleep(3)
         ele_policy_detial = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[1]/td[1]')
-        # 显示等地啊
+        # 显示等待
         WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_policy_detial))
         self.find_and_click(*ele_policy_detial)
         return PolicyDetailPage(self.driver)
@@ -29,7 +29,6 @@ class PolicyPage(BasePage):
         # 找到第一列的policyid
         element = self.driver.find_element(By.XPATH,'//*[@class="ant-table-tbody"]/tr[1]/td[1]')
         text = element.text
-        print(f"text==={text}")
         return text
         time.sleep(1)
 
@@ -49,15 +48,12 @@ class PolicyPage(BasePage):
         time.sleep(2)
         # 获取policy状态列表
         ele_list = self.driver.find_elements(By.XPATH,'//*[@class="igloo-typography-status word-wrap"]')
-        print(f"ele_list: {ele_list}")
         len(ele_list)
         lenth = len(ele_list)
         policy_status_list = []
         for i in range(lenth):
             policy_status = ele_list[i].text
             policy_status_list.append(policy_status)
-
-        print(f"policy_status_list: {policy_status_list}")
         return policy_status_list
 
     def filter_start_date(self):

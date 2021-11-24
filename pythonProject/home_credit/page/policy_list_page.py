@@ -76,7 +76,7 @@ class PolicyPage(BasePage):
         self.driver.find_element(By.XPATH,'//*[@placeholder="End date"]').send_keys("11 / 01 / 2021")
         #点击apply按钮
         self.driver.find_element(By.XPATH, '//*[@class="igloo-form-filter-drop-down-footer"]/div/div[2]').click()
-        time.sleep(2)
+        time.sleep(10)
         # 获取start date 列表
         # start_list = self.driver.find_elements(By.XPATH, '//*[@class="ant-table-tbody"]/tr//td[5]')
         ele_startdate = (By.XPATH, '//*[@class="ant-table-tbody"]/tr//td[5]')

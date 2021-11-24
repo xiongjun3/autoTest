@@ -73,11 +73,11 @@ class PolicyPage(BasePage):
         # 执行js代码
         self.driver.execute_script(js)
         # 向时间控件start date 输入时间
-        self.driver.find_element(By.XPATH, '//*[@placeholder="Start date"]').send_keys("11 / 02 / 2021")
+        self.driver.find_element(By.XPATH, '//*[@placeholder="Start date"]').send_keys("11 / 01 / 2021")
         # 找到end_date的输入框，去掉只读属性
         js = "document.getElementsByTagName('input')[5].removeAttribute('readonly')"
         self.driver.execute_script(js)
-        self.driver.find_element(By.XPATH,'//*[@placeholder="End date"]').send_keys("11 / 02 / 2021")
+        self.driver.find_element(By.XPATH,'//*[@placeholder="End date"]').send_keys("11 / 01 / 2021")
         #点击apply按钮
         self.driver.find_element(By.XPATH, '//*[@class="igloo-form-filter-drop-down-footer"]/div/div[2]').click()
         time.sleep(2)

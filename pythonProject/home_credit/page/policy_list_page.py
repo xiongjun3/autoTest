@@ -25,7 +25,7 @@ class PolicyPage(BasePage):
         input.send_keys(displayid)
         # 回车
         input.send_keys(Keys.ENTER)
-        time.sleep(2)
+        time.sleep(5)
         # 找到第一列的policyid
         element = self.driver.find_element(By.XPATH,'//*[@class="ant-table-tbody"]/tr[1]/td[1]')
         text = element.text
@@ -76,7 +76,7 @@ class PolicyPage(BasePage):
         self.driver.find_element(By.XPATH,'//*[@placeholder="End date"]').send_keys("11 / 01 / 2021")
         #点击apply按钮
         self.driver.find_element(By.XPATH, '//*[@class="igloo-form-filter-drop-down-footer"]/div/div[2]').click()
-        time.sleep(10)
+        time.sleep(5)
         # 获取start date 列表
         # start_list = self.driver.find_elements(By.XPATH, '//*[@class="ant-table-tbody"]/tr//td[5]')
         ele_startdate = (By.XPATH, '//*[@class="ant-table-tbody"]/tr//td[5]')

@@ -77,7 +77,7 @@ class PolicyPage(BasePage):
         self.driver.find_element(By.XPATH,'//*[@placeholder="End date"]').send_keys("11 / 01 / 2021")
         #点击apply按钮
         self.driver.find_element(By.XPATH, '//*[@class="igloo-form-filter-drop-down-footer"]/div/div[2]').click()
-        time.sleep(5)
+        time.sleep(10)
         # 获取start date 列表
         # start_list = self.driver.find_elements(By.XPATH, '//*[@class="ant-table-tbody"]/tr//td[5]')
         ele_startdate = (By.XPATH, '//*[@class="ant-table-tbody"]/tr//td[5]')
@@ -106,7 +106,7 @@ class PolicyPage(BasePage):
         path = '/Users/xiongjun/Documents/test_files'
         csvpath = os.path.join(path,'tmpl_wrong_format_birth.csv')
         upload.send_keys(csvpath)
-        time.sleep(5)
+        time.sleep(10)
         # 查找上传的文件名称
         ele_file_name = (By.XPATH, '//*[@title="tmpl_wrong_format_birth.csv"]')
         WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_file_name))

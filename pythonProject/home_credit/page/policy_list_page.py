@@ -1,3 +1,4 @@
+import os
 import time
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -102,7 +103,9 @@ class PolicyPage(BasePage):
         # 上传文件
         ele_brower = (By.XPATH, '//*[@class="ant-upload ant-upload-btn"]/input')
         upload = self.find(*ele_brower)
-        upload.send_keys('/Users/xiongjun/Documents/test_files/tmpl_wrong_format_birth.csv')
+        path = '/Users/xiongjun/Documents/test_files'
+        csvpath = os.path.join(path,'tmpl_wrong_format_birth.csv')
+        upload.send_keys(csvpath)
         time.sleep(5)
         # 查找上传的文件名称
         ele_file_name = (By.XPATH, '//*[@title="tmpl_wrong_format_birth.csv"]')

@@ -30,10 +30,10 @@ class TestPolicy:
         for i in range(lenth):
             assert start_date_list[i] == "11 / 01 / 2021"
 
-    # @allure.story("上传csv文件")
-    # def test_import_enrollment(self):
-    #     main = AdminPanelPage()
-    #     main.goto_homecredit().import_enrollment()
+    @allure.story("上传csv文件")
+    def test_import_enrollment(self):
+        main = AdminPanelPage()
+        main.goto_homecredit().import_enrollment()
 
     @allure.story("logout")
     def test_logout(self):

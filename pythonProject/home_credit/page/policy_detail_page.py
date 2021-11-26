@@ -25,6 +25,15 @@ class PolicyDetailPage(BasePage):
         WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_back))
         self.find_and_click(*ele_back)
 
+    def check_loan_term(self):
+        ele_loanterm = (By.XPATH,'//*[contains(text(), "Loan Term")]/../../span')
+        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_loanterm))
+        loanterm_item = self.find(*ele_loanterm)
+        loan_term = loanterm_item.text
+        return loan_term
+
+
+
 
 
 

@@ -9,9 +9,9 @@ from selenium.webdriver.common.keys import Keys
 
 
 class PolicyPage(BasePage):
-    def goto_policy_detail(self):
+    def goto_policy_detail(self,policy_id):
         time.sleep(3)
-        ele_policy_detial = (By.XPATH, '//*[@class="ant-table-tbody"]/tr[1]/td[1]')
+        ele_policy_detial = (By.XPATH, '//*[contains(text(),"'+policy_id+'")]')
         # 显示等待
         WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_policy_detial))
         self.find_and_click(*ele_policy_detial)
@@ -27,13 +27,13 @@ class PolicyPage(BasePage):
         # 回车
         input.send_keys(Keys.ENTER)
         time.sleep(5)
-        # 找到第一列的policyid
+        # 找到搜索后的第一列的policyid
         element = self.driver.find_element(By.XPATH,'//*[@class="ant-table-tbody"]/tr[1]/td[1]')
         text = element.text
         return text
         time.sleep(1)
 
-    def filter_policy_status(self):
+    def filter_policy_status(self,policy_status):
         locator = (By.XPATH, '//*[@class="ant-btn igloo-form-filter-filter-button"]')
         # 显示等待
         WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(locator))
@@ -42,7 +42,9 @@ class PolicyPage(BasePage):
         filter.click()
         time.sleep(1)
         # 点击protected状态
-        self.driver.find_element(By.XPATH,'//*[@class="ant-row"]/div[1]/label/span[1]').click()
+        ele_policy_status = (By.XPATH, '//*[@value="'+policy_status+'"]')
+        self.find_and_click(*ele_policy_status)
+        # self.driver.find_element(By.XPATH,'//*[@class="ant-row"]/div[1]/label/span[1]').click()
         time.sleep(1)
         # 点击apply按钮
         self.driver.find_element(By.XPATH,'//*[@class="igloo-form-filter-drop-down-footer"]/div/div[2]').click()
@@ -57,7 +59,7 @@ class PolicyPage(BasePage):
             policy_status_list.append(policy_status)
         return policy_status_list
 
-    def filter_start_date(self):
+    def filter_start_date(self,start_date,end_date):
         locator = (By.XPATH, '//*[@class="ant-btn igloo-form-filter-filter-button"]')
         # 显示等待
         WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(locator))
@@ -70,31 +72,27 @@ class PolicyPage(BasePage):
         # 执行js代码
         self.driver.execute_script(js)
         # 向时间控件start date 输入时间
-        self.driver.find_element(By.XPATH, '//*[@placeholder="Start date"]').send_keys("11 / 01 / 2021")
+        self.driver.find_element(By.XPATH, '//*[@placeholder="Start date"]').send_keys(start_date)
         # 找到end_date的输入框，去掉只读属性
         js = "document.getElementsByTagName('input')[5].removeAttribute('readonly')"
         self.driver.execute_script(js)
-        self.driver.find_element(By.XPATH,'//*[@placeholder="End date"]').send_keys("11 / 01 / 2021")
+        self.driver.find_element(By.XPATH,'//*[@placeholder="End date"]').send_keys(end_date)
         #点击apply按钮
         self.driver.find_element(By.XPATH, '//*[@class="igloo-form-filter-drop-down-footer"]/div/div[2]').click()
         time.sleep(2)
         # 获取start date 列表
-        # start_list = self.driver.find_elements(By.XPATH, '//*[@class="ant-table-tbody"]/tr//td[5]')
         ele_startdate = (By.XPATH, '//*[@class="ant-table-tbody"]/tr//td[5]')
         WebDriverWait(self.driver, 30, 0.5).until(expected_conditions.element_to_be_clickable(ele_startdate))
         start_list = self.find_list(*ele_startdate)
-        # print(f"............up_list:{start_list}")
         lenth = len(start_list)
         start_date_list = []
         for i in range(lenth):
             # 循环获取列表的text属性，并拼成一个新的数组
             ele=start_list[i].text
             start_date_list.append(ele)
-
-        # print(f"start_date_list: {start_date_list}")
         return start_date_list
 
-    def import_enrollment(self):
+    def import_enrollment(self,csvpath):
         ele_import = (By.XPATH, '//*[@class="igloo-typography-h4 word-wrap"]')
         # 显示等待
         WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_import))
@@ -104,8 +102,7 @@ class PolicyPage(BasePage):
         # 上传文件
         ele_brower = (By.XPATH, '//*[@class="ant-upload ant-upload-btn"]/input')
         upload = self.find(*ele_brower)
-        path = '/Users/xiongjun/Documents/test_files'
-        csvpath = os.path.join(path,'tmpl_wrong_format_birth.csv')
+
         upload.send_keys(csvpath)
         time.sleep(2)
         # 查找上传的文件名称

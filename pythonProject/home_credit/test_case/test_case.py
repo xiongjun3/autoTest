@@ -86,6 +86,97 @@ class TestPolicyDtail:
         loan_term = main.goto_homecredit().goto_policy_detail(self.policy_id).check_loan_term()
         assert self.loan_term == loan_term
 
+    @allure.story("policy detail页面检查coverage start date")
+    def test_check_coveragestartdate(self):
+        # 查找元素用的前端标签的text
+        self.policy_id = "HCACOC50882728"
+        # 期望的coverage start date
+        self.coverage_start_date = "11 / 10 / 2021"
+
+        main = AdminPanelPage()
+        coverage_start_date = main.goto_homecredit().goto_policy_detail(self.policy_id).check_coverage_start_date()
+        assert self.coverage_start_date == coverage_start_date
+
+    @allure.story("policy detail页面检查coverage end date")
+    def test_check_coverageenddate(self):
+        # 查找元素用的前端标签的text
+        self.policy_id = "HCACOC50882728"
+        # 期望的coverage end date
+        self.coverage_end_date = "11 / 11 / 2022"
+
+        main = AdminPanelPage()
+        coverage_end_date = main.goto_homecredit().goto_policy_detail(self.policy_id).check_coverage_end_date()
+        assert self.coverage_end_date == coverage_end_date
+
+    @allure.story("policy detail页面检查full name")
+    def test_check_fullname(self):
+        # 查找元素用的前端标签的text
+        self.policy_id = "HCACOC50882728"
+        # 期望的full name
+        self.fullname = "yue test liang"
+
+        main = AdminPanelPage()
+        fullname = main.goto_homecredit().goto_policy_detail(self.policy_id).check_fullname()
+        assert self.fullname == fullname
+
+    @allure.story("policy detail页面检查gender")
+    def test_check_gender(self):
+        # 查找元素用的前端标签的text
+        self.policy_id = "HCACOC50882728"
+        # 期望的gender
+        self.gender = "Male"
+
+        main = AdminPanelPage()
+        gender = main.goto_homecredit().goto_policy_detail(self.policy_id).check_gender()
+        assert self.gender == gender
+
+    @allure.story("policy detail页面检查date of birth")
+    def test_check_birthdate(self):
+        # 查找元素用的前端标签的text
+        self.policy_id = "HCACOC50882728"
+        # 期望的gender
+        self.birthdate = "02 / 29 / 1960"
+
+        main = AdminPanelPage()
+        birthdate = main.goto_homecredit().goto_policy_detail(self.policy_id).check_birthdate()
+        assert self.birthdate == birthdate
+
+    @allure.story("policy detail页面检查mobile number")
+    def test_check_birthdate(self):
+        # 查找元素用的前端标签的text
+        self.policy_id = "HCACOC50882728"
+        # 期望的gender
+        self.mobile_number = "177101445487978"
+
+        main = AdminPanelPage()
+        mobile_number = main.goto_homecredit().goto_policy_detail(self.policy_id).check_mobile_number()
+        assert self.mobile_number == mobile_number
+
+    @allure.story("policy detail页面检查email")
+    def test_check_email(self):
+        # 查找元素用的前端标签的text
+        self.policy_id = "HCACOC50882728"
+        # 期望的gender
+        self.email = "liang.yue@iglooinsure.com"
+
+        main = AdminPanelPage()
+        email = main.goto_homecredit().goto_policy_detail(self.policy_id).check_email()
+        assert self.email == email
+
+    @allure.story("policy detail页面检查address")
+    def test_check_address(self):
+        # 查找元素用的前端标签的text
+        self.policy_id = "HCACOC50882728"
+        # 期望的gender
+        self.address = "chain sichuan chengdu 1-101 t！@#¥%……&*（）——+中国四川成都1-101"
+
+        main = AdminPanelPage()
+        address = main.goto_homecredit().goto_policy_detail(self.policy_id).check_address()
+        assert self.address == address
+
+
+
+
 
 
 

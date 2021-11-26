@@ -32,6 +32,62 @@ class PolicyDetailPage(BasePage):
         loan_term = loanterm_item.text
         return loan_term
 
+    def check_coverage_start_date(self):
+        ele_coverage_start_date= (By.XPATH,'//*[contains(text(), "Coverage Start Date")]/../../span')
+        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_coverage_start_date))
+        coverage_start_date_item = self.find(*ele_coverage_start_date)
+        coverage_start_date = coverage_start_date_item.text
+        return coverage_start_date
+
+    def check_coverage_end_date(self):
+        ele_coverage_end_date = (By.XPATH,'//*[contains(text(), "Coverage End Date")]/../../span')
+        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_coverage_end_date))
+        coverage_end_date_item = self.find(*ele_coverage_end_date)
+        coverage_end_date = coverage_end_date_item.text
+        return coverage_end_date
+
+    def check_fullname(self):
+        ele_fullname = (By.XPATH,'//*[contains(text(), "Full Name")]/../../span')
+        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_fullname))
+        fullname_item = self.find(*ele_fullname)
+        full_name = fullname_item.text
+        return full_name
+
+    def check_gender(self):
+        ele_gender = (By.XPATH,'//*[contains(text(), "Gender")]/../../span')
+        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_gender))
+        gender_item = self.find(*ele_gender)
+        gender = gender_item.text
+        return gender
+
+    def check_birthdate(self):
+        ele_birthdate = (By.XPATH,'//*[contains(text(), "Date of Birth")]/../../span')
+        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_birthdate))
+        birthdate_item = self.find(*ele_birthdate)
+        birthdate = birthdate_item.text
+        return birthdate
+
+    def check_mobile_number(self):
+        ele_mobile_number = (By.XPATH,'//*[contains(text(), "Mobile Number")]/../../span')
+        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_mobile_number))
+        mobile_number_item = self.find(*ele_mobile_number)
+        mobile_bumber = mobile_number_item.text
+        return mobile_bumber
+
+    def check_email(self):
+        ele_email= (By.XPATH,'//*[contains(text(), "Email")]/../../span')
+        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_email))
+        email_item = self.find(*ele_email)
+        email = email_item.text
+        return email
+
+    def check_address(self):
+        ele_address= (By.XPATH,'//*[contains(text(), "Address")]/../../span')
+        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_address))
+        address_item = self.find(*ele_address)
+        address = address_item.text
+        return address
+
 
 
 

@@ -10,11 +10,12 @@ class TestPolicy:
 
     @allure.story("搜索功能")
     def test_search(self):
-        self.displayid = "MICIHCA67497916"
+        self.coc_no = "MICIHCA67497916"
+
         main = AdminPanelPage()
-        searchresult = main.goto_homecredit().search(self.displayid)
+        searchresult = main.goto_homecredit().search(self.coc_no)
         print(searchresult)
-        assert searchresult == self.displayid
+        assert searchresult == self.coc_no
 
     @allure.story("按protected状态过滤")
     def test_filter_protected(self):
@@ -25,8 +26,8 @@ class TestPolicy:
 
         main = AdminPanelPage()
         policy_status_list = main.goto_homecredit().filter_policy_status(self.policy_status)
-        lenth=len(policy_status_list)
-        for i in range(lenth):
+        length=len(policy_status_list)
+        for i in range(length):
             assert policy_status_list[i] == policy_status
 
     @allure.story("按start_date过滤")
@@ -173,6 +174,110 @@ class TestPolicyDtail:
         main = AdminPanelPage()
         address = main.goto_homecredit().goto_policy_detail(self.policy_id).check_address()
         assert self.address == address
+
+
+@allure.feature("claim_list页面功能")
+class TestClaimList:
+    @allure.story("search by claim id")
+    def test_search_by_cliam_id(self):
+        self.claim_id="D-HC-MICI-76181916"
+
+        main = AdminPanelPage()
+        claim_id = main.goto_homecredit().goto_claim_list().search_by_claimid(self.claim_id)
+        assert self.claim_id == claim_id
+
+    @allure.story("search by coc no")
+    def test_search_by_coc_no(self):
+        self.coc_no = "MICIHCA75454055"
+
+        main = AdminPanelPage()
+        coc_no_list = main.goto_homecredit().goto_claim_list().search_by_coc_no(self.coc_no)
+        length = len(coc_no_list)
+        for i in range(length):
+            assert coc_no_list[i] == self.coc_no
+
+    @allure.story("按claim_date过滤")
+    def test_filter_claimdate(self):
+        # 搜索时输入的start date
+        self.start_date = "11 / 19 / 2021"
+        # 搜索时输入的end date
+        self.end_date = "11 / 19 / 2021"
+        # 在start date 和end date一样的情况下，搜索结果claim_date_list中的日期
+        self.claim_date = "11 / 19 / 2021"
+
+        main = AdminPanelPage()
+        claim_date_list = main.goto_homecredit().goto_claim_list().filter_claim_date(self.start_date,self.end_date)
+        length = len(claim_date_list)
+        for i in range(length):
+            assert claim_date_list[i] == self.claim_date
+
+    @allure.story("按protected:ClaimProcessing状态过滤")
+    def test_filter_ClaimProcessing(self):
+        # 查找元素用的前端标签的text
+        self.policy_status = "ClaimProcessing"
+        # 期望的policy list中的policy status
+        policy_status = "CLAIM PROCESSING"
+
+        main = AdminPanelPage()
+        policy_status_list = main.goto_homecredit().goto_claim_list().filter_policy_status(self.policy_status)
+        length = len(policy_status_list)
+        for i in range(length):
+            assert policy_status_list[i] == policy_status
+
+    @allure.story("按protected:ClaimApproved状态过滤")
+    def test_filter_ClaimApproved(self):
+        # 查找元素用的前端标签的text
+        self.policy_status = "ClaimApproved"
+        # 期望的policy list中的policy status
+        policy_status = "CLAIM APPROVED"
+
+        main = AdminPanelPage()
+        policy_status_list = main.goto_homecredit().goto_claim_list().filter_policy_status(self.policy_status)
+        length = len(policy_status_list)
+        for i in range(length):
+            assert policy_status_list[i] == policy_status
+
+@allure.feature("claim_detail页面功能")
+class TestClaimDetail:
+    @allure.story("check coc no")
+    def test_check_coc_no(self):
+        self.claim_id = "HC-MICI-30121781"
+        self.coc_no = "MICIHCA67497916"
+
+        main = AdminPanelPage()
+        coc_no = main.goto_homecredit().goto_claim_list().goto_claim_detail(self.claim_id).check_coc_no()
+        assert self.coc_no == coc_no
+
+    @allure.story("check Claim Date")
+    def test_check_claim_date(self):
+        self.claim_id = "HC-MICI-30121781"
+        self.claim_date = "11 / 19 / 2021"
+
+        main = AdminPanelPage()
+        claim_date = main.goto_homecredit().goto_claim_list().goto_claim_detail(self.claim_id).check_claim_date()
+        assert self.claim_date == claim_date
+
+    @allure.story("check full name")
+    def test_check_full_name(self):
+        self.claim_id = "HC-MICI-30121781"
+        self.full_name = "xiong test jun"
+
+        main = AdminPanelPage()
+        full_name = main.goto_homecredit().goto_claim_list().goto_claim_detail(self.claim_id).check_full_name()
+        assert self.full_name == full_name
+
+    @allure.story("check gender")
+    def test_check_gender(self):
+        self.claim_id = "HC-MICI-30121781"
+        self.full_name = "xiong test jun"
+
+        main = AdminPanelPage()
+        full_name = main.goto_homecredit().goto_claim_list().goto_claim_detail(self.claim_id).check_full_name()
+        assert self.full_name == full_name
+
+
+
+
 
 
 

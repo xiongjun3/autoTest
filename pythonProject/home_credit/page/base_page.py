@@ -12,6 +12,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage:
+
     def get_config(self):
         # python3里面自带configparser模块来读取ini文件
         # 读取iselenium中的Chrome driver的路径，不然执行的时候会报错
@@ -76,4 +77,8 @@ class BasePage:
     # 封装查找列表的方法
     def find_list(self, by, value):
         return self.driver.find_elements(by, value)
+
+    def wait(self,second,element):
+        WebDriverWait(self.driver, second, 0.5).until(expected_conditions.element_to_be_clickable(element))
+
 

@@ -74,6 +74,14 @@ class TestPolicy:
         main = PolicyPage()
         main.logout()
 
+@allure.feature("claim form页面功能")
+class TestClaimForm:
+    @allure.story("提交claim form并在claim list页面检查该claim已存在")
+    def test_submit_claim_form(self):
+        self.coc_no = "HCACOC65586238"
+        main = PolicyPage()
+        main.goto_claim_form(self.coc_no).submit_claim_form()
+
 
 
 

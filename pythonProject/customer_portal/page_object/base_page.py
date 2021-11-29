@@ -5,7 +5,8 @@ import yaml
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.remote.webdriver import WebDriver
-
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage:
@@ -43,6 +44,7 @@ class BasePage:
             # driver前加self，让其变成一个实例变量，如是只是一个变量是传不到子类中去的
             self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
                                            options=chrome_options)
+            self.driver.maximize_window()
             self.driver.get(self._base_url)
 
             configpath='/Users/xiongjun/python_auto/pythonProject/customer_portal/config'
@@ -84,3 +86,16 @@ class BasePage:
     # 封装查找列表的方法
     def find_list(self, by, value):
         return self.driver.find_elements(by, value)
+
+    # 封装显示等待
+    def wait(self,second,element):
+        WebDriverWait(self.driver, second, 0.5).until(expected_conditions.element_to_be_clickable(element))
+
+    # 封装修改元素的属性值
+    def setAttribute(driver, elementobj, attributeName, value):
+        '''
+        封装设置页面对象的属性值的方法
+        调用JS代码修改页面元素的属性值，arguments[0]~arguments[1]分别
+        会用后面的element，attributeName和value参数进行替换
+        '''
+        driver.execute_script("arguments[0].setAttribute(arguments[1],arguments[2])", elementobj, attributeName, value)

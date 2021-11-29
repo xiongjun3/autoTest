@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from customer_portal.page_object.base_page import BasePage
+from customer_portal.page_object.claim_form_page import ClaimFormPage
 
 
 class PolicyPage(BasePage):
@@ -156,6 +157,17 @@ class PolicyPage(BasePage):
         ele_logout = (By.XPATH, '//*[@id="dropMenu"]/../div[1]/span[2]')
         WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_logout))
         self.find_and_click(*ele_logout)
+
+    def goto_claim_form(self,coc_no):
+        ele_claim_form = (By.XPATH, '//*[contains(text(),"'+coc_no+'")]/../../../../../div[1]/button')
+        self.wait(5, ele_claim_form)
+        self.find_and_click(*ele_claim_form)
+
+        ele_continue = (By.XPATH, '//*[contains(text(),"Continue")]')
+        self.wait(5,ele_continue)
+        self.find_and_click(*ele_continue)
+
+        return ClaimFormPage(self.driver)
 
 
 

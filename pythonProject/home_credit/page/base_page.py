@@ -78,6 +78,7 @@ class BasePage:
     def find_list(self, by, value):
         return self.driver.find_elements(by, value)
 
+    # 封装显示等待
     def wait(self,second,element):
         WebDriverWait(self.driver, second, 0.5).until(expected_conditions.element_to_be_clickable(element))
 

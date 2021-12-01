@@ -99,3 +99,6 @@ class BasePage:
         会用后面的element，attributeName和value参数进行替换
         '''
         driver.execute_script("arguments[0].setAttribute(arguments[1],arguments[2])", elementobj, attributeName, value)
+
+    def teardown_module(self):
+        self.driver.quit()

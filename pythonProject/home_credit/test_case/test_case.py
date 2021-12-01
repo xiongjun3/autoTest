@@ -219,10 +219,10 @@ class TestClaimList:
         policy_status = "CLAIM PROCESSING"
 
         main = AdminPanelPage()
-        policy_status_list = main.goto_homecredit().goto_claim_list().filter_policy_status(self.policy_status)
-        length = len(policy_status_list)
+        self.policy_status_list = main.goto_homecredit().goto_claim_list().filter_policy_status(self.policy_status)
+        length = len(self.policy_status_list)
         for i in range(length):
-            assert policy_status_list[i] == policy_status
+            assert self.policy_status_list[i] == policy_status
 
     @allure.story("按protected:ClaimApproved状态过滤")
     def test_filter_ClaimApproved(self):

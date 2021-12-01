@@ -82,6 +82,17 @@ class TestClaimForm:
         main = PolicyPage()
         main.goto_claim_form(self.coc_no).submit_claim_form()
 
+@allure.feature("claim list页面功能")
+class TestClaimList:
+    @allure.story("cancel pilicy")
+    def test_cancel_policy(self):
+        self.claim_no = "HC-MICI-20338279"
+        main = PolicyPage()
+        main.goto_claim_list().cancel_claim(self.claim_no)
+
+
+
+
 
 
 

@@ -6,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from customer_portal.page_object.base_page import BasePage
 from customer_portal.page_object.claim_form_page import ClaimFormPage
+from customer_portal.page_object.claim_list_page import ClaimListPage
 
 
 class PolicyPage(BasePage):
@@ -168,6 +169,13 @@ class PolicyPage(BasePage):
         self.find_and_click(*ele_continue)
 
         return ClaimFormPage(self.driver)
+
+    def goto_claim_list(self):
+        ele_claim_list = (By.XPATH, '//div[@class="igloo-pa-header-menu-btn false"]')
+        self.wait(5,ele_claim_list)
+        self.find_and_click(*ele_claim_list)
+
+        return ClaimListPage(self.driver)
 
 
 

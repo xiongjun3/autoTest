@@ -10,6 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 class TestLogin:
     def setup_class(self):
         self.driver = webdriver.Chrome()
+
     def test_login(self):
         url1 = "https://homecredit.qa.axinan.com/pc/login?id=bb806618-e0b2-4f1e-bb8c-24d208ce5aae"
         self.driver.get(url1)
@@ -70,6 +71,9 @@ class TestLogin:
         with open("local_storage.yaml", "w") as f:
             # 第一个参数是要写入的数据
             yaml.safe_dump(local_storage, f)
+
+    def teardown_class(self):
+        self.driver.quit()
 
 
 

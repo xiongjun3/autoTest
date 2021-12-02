@@ -91,6 +91,12 @@ class BasePage:
     def wait(self,second,element):
         WebDriverWait(self.driver, second, 0.5).until(expected_conditions.element_to_be_clickable(element))
 
+    # 封装alert 等待
+    def alert_wait(self,second):
+        WebDriverWait(self.driver, second, 0.5).until(expected_conditions.alert_is_present())
+
+
+
     # 封装修改元素的属性值
     def setAttribute(driver, elementobj, attributeName, value):
         '''

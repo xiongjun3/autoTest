@@ -16,7 +16,7 @@ class TestLogin:
         self.driver.get(url1)
         time.sleep(2)
         locator = (By.XPATH, '//*[@class="ant-btn ant-btn-link igloo-otp-extra igloo-button"]')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(locator))
+        WebDriverWait(self.driver, 10, 0.5).until(expected_conditions.element_to_be_clickable(locator))
         self.driver.find_element(By.XPATH, '//*[@class="ant-btn ant-btn-link igloo-otp-extra igloo-button"]').click()
         windows_handles = self.driver.window_handles
         print(f"---------------windows_handles:{windows_handles}")
@@ -27,7 +27,7 @@ class TestLogin:
         url2 = "https://mail.google.com/mail/u/0/#inbox"
         self.driver.get(url2)
         ele_email = (By.ID, "identifierId")
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_email))
+        WebDriverWait(self.driver, 10, 0.5).until(expected_conditions.element_to_be_clickable(ele_email))
         # 输入邮箱
         self.driver.find_element(By.ID, "identifierId").send_keys("jun.xiong@iglooinsure.com")
         # 点击下一步
@@ -41,7 +41,7 @@ class TestLogin:
 
         time.sleep(5)
         ele_email_1 = (By.XPATH, '//*[@id=":1k"]/tbody/tr[1]')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_email_1))
+        WebDriverWait(self.driver, 10, 0.5).until(expected_conditions.element_to_be_clickable(ele_email_1))
         # 进入收件箱，点击进入第一封邮件详情
         self.driver.find_element(By.XPATH, '//*[@id=":1k"]/tbody/tr[1]').click()
         time.sleep(3)
@@ -56,7 +56,7 @@ class TestLogin:
         # 获取到验证码后，登陆
         self.driver.get(url1)
         ele_opt = (By.ID, "otp")
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_opt))
+        WebDriverWait(self.driver, 10, 0.5).until(expected_conditions.element_to_be_clickable(ele_opt))
 
         self.driver.find_element(By.ID, "otp").send_keys(OPT_code)
         self.driver.find_element(By.XPATH, '//*[@class="ant-btn ant-btn-primary igloo-login-button"]').click()

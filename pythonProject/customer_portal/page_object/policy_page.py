@@ -1,5 +1,4 @@
 import time
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -7,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from customer_portal.page_object.base_page import BasePage
 from customer_portal.page_object.claim_form_page import ClaimFormPage
 from customer_portal.page_object.claim_list_page import ClaimListPage
+from customer_portal.page_object.policy_detail_page import PolicyDetailPage
 
 
 class PolicyPage(BasePage):
@@ -170,12 +170,42 @@ class PolicyPage(BasePage):
 
         return ClaimFormPage(self.driver)
 
+    def goto_death_claim_form(self,coc_no,death_type):
+        # 点击claim now
+        ele_claim_now = (By.XPATH, '//*[contains(text(),"'+coc_no+'")]/../../../../../div[1]/button')
+        self.wait(5, ele_claim_now)
+        self.find_and_click(*ele_claim_now)
+        # 点击claim form
+        ele_claim_form = (By.XPATH, '//*[contains(text(),"claim form")]')
+        self.wait(5, ele_claim_form)
+        self.find_and_click(*ele_claim_form)
+        # 填写coc_no
+        ele_coc_no = (By.XPATH, '//input[@class="ant-input igloo-input"]')
+        self.wait(5, ele_coc_no)
+        self.find_and_send(*ele_coc_no,coc_no)
+        # 选择死亡类型
+        self.find_and_click(By.XPATH, '//input[@value="'+death_type+'"]')
+        # 点continue
+        self.find_and_click(By.XPATH, '//*[contains(text(),"Continue")]/..')
+        ele_alert = (By.XPATH,'//*[@role="alert"]/div/div/span')
+        self.wait(10,ele_alert)
+        content = self.find(*ele_alert).text
+        print(f"alert=========={content}")
+        return content
+
     def goto_claim_list(self):
         ele_claim_list = (By.XPATH, '//div[@class="igloo-pa-header-menu-btn false"]')
         self.wait(5,ele_claim_list)
         self.find_and_click(*ele_claim_list)
-
         return ClaimListPage(self.driver)
+
+    def goto_policy_detail(self,coc_no):
+        ele_policy_drop = (By.XPATH,'//*[contains(text(),"'+coc_no+'")]/../../../../../div[1]/div[1]/div[1]')
+        self.wait(5,ele_policy_drop)
+        self.find_and_click(*ele_policy_drop)
+        return PolicyDetailPage(self.driver)
+
+
 
 
 

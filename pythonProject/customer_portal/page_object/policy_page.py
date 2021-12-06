@@ -10,121 +10,60 @@ from customer_portal.page_object.policy_detail_page import PolicyDetailPage
 
 
 class PolicyPage(BasePage):
-
-    def get_fullname(self):
-        # policyid=MICIHCA75454055的元素的查看详情按钮
-        ele_policydetail = (By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[1]/div/div[1]')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_policydetail))
-        self.find_and_click(*ele_policydetail)
-
-        # 查找policyid=MICIHCA75454055的full_name
-        ele_fullname = (By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[3]/div[2]/div[2]/div/div/div[1]/div[2]')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_fullname))
-        full_name_item = self.find(*ele_fullname)
-        full_name = full_name_item.get_attribute("textContent")
-        return full_name
-
-        #收起详情按钮
-        ele_policydetail = (By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[1]/div/div[1]')
-        self.find_and_click(*ele_policydetail)
-
-    def get_gender(self):
-        # policyid=MICIHCA75454055的元素的查看详情按钮
-        ele_policydetail = (By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[1]/div/div[1]')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_policydetail))
-        self.find_and_click(*ele_policydetail)
-
-        # 查找policyid=MICIHCA75454055的date of birth
-        ele_gender = (
-            By.XPATH,
-            '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[3]/div[2]/div[2]/div/div/div[2]/div[2]')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_gender))
-        gender_item = self.find(*ele_gender)
-        gender = gender_item.get_attribute("textContent")
-        return gender
-
-        # 收起详情按钮
-        ele_policydetail = (By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[1]/div/div[1]')
-        self.find_and_click(*ele_policydetail)
-
-    # 获取policy
-    def get_birth(self):
-        # policyid=MICIHCA75454055的元素的查看详情按钮
-        ele_policydetail = (By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[1]/div/div[1]')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_policydetail))
-        self.find_and_click(*ele_policydetail)
-
-        # 查找policyid=MICIHCA75454055的date of birth
-        ele_birth = (
-        By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[3]/div[2]/div[2]/div/div/div[3]/div[2]')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_birth))
-        birth_item = self.find(*ele_birth)
-        birth = birth_item.get_attribute("textContent")
-        return birth
-
-        # 收起详情按钮
-        ele_policydetail = (By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[1]/div/div[1]')
-        self.find_and_click(*ele_policydetail)
-
     # 获取policy status
-    def get_policy_status(self):
-        # 查找policyid=MICIHCA75454055的status
+    def get_policy_status(self,coc_no):
         ele_birth = (
-        By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[1]/div/div[3]/span/span')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_birth))
+        By.XPATH, '//*[contains(text(),"'+coc_no+'")]/../../../../../div[1]/div/div[3]/span/span')
+        self.wait(5,ele_birth)
         policy_status_item = self.find(*ele_birth)
         policy_status = policy_status_item.get_attribute("textContent")
         return policy_status
 
-    # policy_status = PROTECTED
-    def get_policy_status_protected(self):
-        # 查找policyid=MICIHCA75454055的status
-        ele_birth = (
-        By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../../../div[1]/div/div[3]/span/span')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_birth))
-        policy_status_item = self.find(*ele_birth)
-        policy_status = policy_status_item.get_attribute("textContent")
-        return policy_status
 
-    # policy_status = POLICY EXPIRED
-    def get_policy_status_expired(self):
-        # 查找policyid=MICIHCA75454055的status
-        ele_birth = (
-        By.XPATH, '//*[contains(text(),"MICIHCA67497916")]/../../../../../div[1]/div/div[3]/span/span')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_birth))
-        policy_status_item = self.find(*ele_birth)
-        policy_status = policy_status_item.get_attribute("textContent")
-        return policy_status
 
-    def view_coc(self):
+    def view_coc_new_window(self,coc_no):
+        # 点击view coverage
         ele_view_coc = (
-            By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../button')
+            By.XPATH, '//*[contains(text(),"'+coc_no+'")]/../button')
+        self.wait(5,ele_view_coc)
         WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_view_coc))
         self.find_and_click(*ele_view_coc)
-        time.sleep(2)
+        # 新窗口打开coc 文件
+        ele_new_win = (By.XPATH, '//*[contains(text(),"Certificate of Coverage")]/span')
+        self.wait(5,ele_new_win)
+        self.find_and_click(*ele_new_win)
 
-    def view_coverage(self):
+    def view_coverage(self,coc_no,benefit):
         ele_view_coverage = (
-            By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../div[2]/div[2]/button')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_view_coverage))
+            By.XPATH, '//*[contains(text(),"'+coc_no+'")]/../../../div[2]/div[2]/button')
+        self.wait(5,ele_view_coverage)
         self.find_and_click(*ele_view_coverage)
+
+        ele_amount = (By.XPATH, '//*[contains(text(),"' + benefit + '")]/../span[1]/div/div/span[2]/span[1]')
+        self.wait(5, ele_amount)
+        amount = self.find(*ele_amount).text
+        decimal = self.find(By.XPATH, '//*[contains(text(),"' + benefit + '")]/../span[1]/div/div/span[2]/span[2]').text
+        currency = self.find(By.XPATH, '//*[contains(text(),"' + benefit + '")]/../span[1]/div/div/span[1]').text
+
+        if benefit == "Accidental Burial Benefit":
+            content = currency + amount + decimal
+        if benefit == "Burial Cash Assistance due to Natural sickness":
+            content = currency + amount + decimal
+        if benefit == "Daily Hospital Income Benefit (sickness and accident)":
+            unit = self.find(By.XPATH, '//*[contains(text(),"' + benefit + '")]/../span[2]').text
+            note = self.find(By.XPATH, '//*[contains(text(),"' + benefit + '")]/../span[3]').text
+            content = currency + amount + decimal + " " + unit + " " + note
+        if benefit == "Emergency Room Assistance (sickness and accident)":
+            note = self.find(By.XPATH, '//*[contains(text(),"' + benefit + '")]/../span[2]').text
+            content = currency + amount + decimal + note
+        return content
+        # 关闭coverage文件
+        self.find_and_click(By.XPATH, '//*[@class="ant-btn ant-btn-default igloo-modal-footer-button igloo-button"]')
         time.sleep(2)
 
-    def get_loan_term(self):
-        ele_loan_term = (
-            By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../div[3]/div[2]/span')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_loan_term))
-        loan_term_item = self.find(*ele_loan_term)
-        loan_tern = loan_term_item.get_attribute("textContent")
-        return loan_tern
 
-    def get_coverage_start_date(self):
-        ele_coverage_start_date = (
-            By.XPATH, '//*[contains(text(),"MICIHCA75454055")]/../../../div[4]/div[2]/span')
-        WebDriverWait(self.driver, 5, 0.5).until(expected_conditions.element_to_be_clickable(ele_coverage_start_date))
-        coverage_start_date_item = self.find(*ele_coverage_start_date)
-        coverage_start_date = coverage_start_date_item.get_attribute("textContent")
-        return coverage_start_date
+
+
 
     def check_drop_name(self):
         ele_drop_name = (

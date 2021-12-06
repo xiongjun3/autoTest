@@ -51,6 +51,8 @@ class BasePage:
                                            options=chrome_options)
             # self.driver = webdriver.Chrome()
             self.driver.get(self._base_url)
+            self.driver.maximize_window()
+
 
             time.sleep(2)
             self.driver.find_element(By.ID, "email").send_keys("jun.xiong@iglooinsure.com")
@@ -81,5 +83,9 @@ class BasePage:
     # 封装显示等待
     def wait(self,second,element):
         WebDriverWait(self.driver, second, 0.5).until(expected_conditions.element_to_be_clickable(element))
+
+    # 封装move readonly
+    def move_readonly(self,n):
+        self.driver.execute_script("document.getElementsByTagName('input')["+n+"].removeAttribute('readonly')")
 
 

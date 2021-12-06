@@ -7,14 +7,19 @@ from home_credit.page.claim_detail_page import ClaimDetailPage
 
 
 class ClaimListPage(BasePage):
-    def goto_claim_detail(self,claim_id):
-        time.sleep(1)
-        # 将claim_id传进xpath里
+    def goto_claim_detail_by_claimid(self,claim_id):
         ele_claim_detial = (By.XPATH, '//*[contains(text(),"' + claim_id + '")]')
-        # 显示等待
         self.wait(5,ele_claim_detial)
         self.find_and_click(*ele_claim_detial)
         return ClaimDetailPage(self.driver)
+
+    def goto_claim_detail_by_status(self,claim_status):
+        ele_claim_detail = (By.XPATH,'//*[contains(text(),"'+claim_status+'")]')
+        self.wait(5,ele_claim_detail)
+        cliam_list = self.find_list(*ele_claim_detail)
+        cliam_list[0].click()
+        return ClaimDetailPage(self.driver)
+
 
     def search_by_claimid(self,claimid):
         ele_input = (By.XPATH, '//*[@placeholder="Search by claim ID, COC No."]')

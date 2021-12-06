@@ -4,57 +4,77 @@ from customer_portal.page_object.policy_page import PolicyPage
 
 @allure.feature("customer policy页面功能")
 class TestPolicy:
-    @allure.story("检查full name")
-    def test_policy_detail_fullname(self):
-        main = PolicyPage()
-        full_name = main.get_fullname()
-        assert full_name == "xiong test jun"
 
-    @allure.story("检查gender")
-    def test_policy_detail_gender(self):
-        main = PolicyPage()
-        gender = main.get_gender()
-        assert gender == "Male"
-
-    @allure.story("检查date of birth")
-    def test_policy_detail_birth(self):
-        main = PolicyPage()
-        birth = main.get_birth()
-        assert birth == "02 / 29 / 1960"
-
-    @allure.story("检查protected policy status")
+    @allure.story("检查protected policy status：PROTECTED")
     def test_policy_detail_policystatus_protected(self):
-        main = PolicyPage()
-        policy_status = main.get_policy_status_protected()
-        assert policy_status == "PROTECTED"
+        self.coc_no = "HCACOC65586238"
+        self.policy_status = "PROTECTED"
 
-    @allure.story("检查expired policy status")
-    def test_policy_detail_policystatus_expired(self):
         main = PolicyPage()
-        policy_status = main.get_policy_status_expired()
-        assert policy_status == "POLICY EXPIRED"
+        policy_status = main.get_policy_status(self.coc_no)
+        assert policy_status == self.policy_status
+
+    @allure.story("检查protected policy status：POLICY EXPIRED")
+    def test_policy_detail_policystatus_protected(self):
+        self.coc_no = "MICIHCA67497916"
+        self.policy_status = "POLICY EXPIRED"
+
+        main = PolicyPage()
+        policy_status = main.get_policy_status(self.coc_no)
+        assert policy_status == self.policy_status
+
+
 
     @allure.story("查看coc文件")
-    def test_policy_detail(self):
-        main = PolicyPage()
-        main.view_coc()
+    def test_view_coc_new_window(self):
+        self.coc_no = "MICIHCA67497916"
 
-    @allure.story("查看coverage")
-    def test_policy_detail(self):
         main = PolicyPage()
-        main.view_coverage()
+        main.view_coc_new_window(self.coc_no)
 
-    @allure.story("检查loan term")
-    def test_policy_detail_birth(self):
-        main = PolicyPage()
-        loan_term = main.get_loan_term()
-        assert loan_term == "6 months"
+    @allure.story("查看coverage:Daily Hospital Income Benefit")
+    def test_view_coverage(self):
+        self.coc_no = "MICIHCA67497916"
+        self.benefit = "Daily Hospital Income Benefit (sickness and accident)"
+        self.content = "PHP1,000.00 per day (max of 15 days)"
 
-    @allure.story("检查coverage start date")
-    def test_policy_detail_birth(self):
         main = PolicyPage()
-        coverage_start_date = main.get_coverage_start_date()
-        assert coverage_start_date == "11 / 10 / 2021"
+        content = main.view_coverage(self.coc_no,self.benefit)
+        assert content == self.content
+
+    @allure.story("查看coverage:Accidental Burial Benefit")
+    def test_view_coverage(self):
+        self.coc_no = "MICIHCA67497916"
+        self.benefit = "Accidental Burial Benefit"
+        self.content = "PHP10,000.00"
+
+        main = PolicyPage()
+        content = main.view_coverage(self.coc_no, self.benefit)
+        assert content == self.content
+
+    @allure.story("查看coverage:Emergency Room Assistance (sickness and accident)")
+    def test_view_coverage(self):
+        self.coc_no = "MICIHCA67497916"
+        self.benefit = "Emergency Room Assistance (sickness and accident)"
+        self.content = "PHP10,000.00(one time use)"
+
+        main = PolicyPage()
+        content = main.view_coverage(self.coc_no, self.benefit)
+        assert content == self.content
+
+    @allure.story("查看coverage:Burial Cash Assistance due to Natural sickness")
+    def test_view_coverage(self):
+        self.coc_no = "MICIHCA67497916"
+        self.benefit = "Burial Cash Assistance due to Natural sickness"
+        self.content = "PHP10,000.00"
+
+        main = PolicyPage()
+        content = main.view_coverage(self.coc_no, self.benefit)
+        assert content == self.content
+
+
+
+
 
     @allure.story("检查drop name")
     def test_drop_name(self):
@@ -72,6 +92,7 @@ class TestPolicy:
 
     @allure.story("go to death claim form")
     def test_cannot_goto_death_claim_form(self):
+        # 这个policy已经申请过death claim了
         self.coc_no = "HCACOC65586238"
         self.death_type = "Accident"
         self.content = "Claims may no longer be submitted for this policy"
@@ -449,11 +470,92 @@ class TestClaimList:
 
 @allure.feature("policy detail页面功能")
 class TestPolicyDetail:
-    @allure.story("goto policy detail page")
+    @allure.story("check full name")
     def test_check_full_name(self):
         self.coc_no = "HCACOC65586238"
         self.item = "Full Name"
         self.content = "xiong jun"
+
+        main = PolicyPage()
+        content = main.goto_policy_detail(self.coc_no).check_policy_detail(self.item)
+        assert content == self.content
+
+    @allure.story("check gender")
+    def test_check_full_name(self):
+        self.coc_no = "HCACOC65586238"
+        self.item = "Gender"
+        self.content = "Male"
+
+        main = PolicyPage()
+        content = main.goto_policy_detail(self.coc_no).check_policy_detail(self.item)
+        assert content == self.content
+
+    @allure.story("check date of birth")
+    def test_check_full_name(self):
+        self.coc_no = "HCACOC65586238"
+        self.item = "Date of Birth"
+        self.content = "02 / 29 / 1960"
+
+        main = PolicyPage()
+        content = main.goto_policy_detail(self.coc_no).check_policy_detail(self.item)
+        assert content == self.content
+
+    @allure.story("check Mobile Number")
+    def test_check_full_name(self):
+        self.coc_no = "HCACOC65586238"
+        self.item = "Mobile Number"
+        self.content = "177101445487978"
+
+        main = PolicyPage()
+        content = main.goto_policy_detail(self.coc_no).check_policy_detail(self.item)
+        assert content == self.content
+
+    @allure.story("check Email")
+    def test_check_full_name(self):
+        self.coc_no = "HCACOC65586238"
+        self.item = "Email"
+        self.content = "jun.xiong@iglooinsure.com"
+
+        main = PolicyPage()
+        content = main.goto_policy_detail(self.coc_no).check_policy_detail(self.item)
+        assert content == self.content
+
+    @allure.story("check Address")
+    def test_check_full_name(self):
+        self.coc_no = "HCACOC65586238"
+        self.item = "Address"
+        self.content = "chain sichuan chengdu 1-101 t！@#¥%……&*（）——+中国四川成都1-101"
+
+        main = PolicyPage()
+        content = main.goto_policy_detail(self.coc_no).check_policy_detail(self.item)
+        assert content == self.content
+
+
+    @allure.story("check Loan Term")
+    def test_check_full_name(self):
+        self.coc_no = "HCACOC65586238"
+        self.item = "Loan Term"
+        self.content = "6 months"
+
+        main = PolicyPage()
+        content = main.goto_policy_detail(self.coc_no).check_policy_detail(self.item)
+        assert content == self.content
+
+    @allure.story("check Coverage Start Date")
+    def test_check_full_name(self):
+        self.coc_no = "HCACOC65586238"
+        self.item = "Coverage Start Date"
+        self.content = "11 / 10 / 2021"
+
+        main = PolicyPage()
+        content = main.goto_policy_detail(self.coc_no).check_policy_detail(self.item)
+        assert content == self.content
+
+    @allure.story("check Coverage End Date")
+    def test_check_full_name(self):
+        self.coc_no = "HCACOC65586238"
+        self.item = "Coverage End Date"
+        self.content = "11 / 11 / 2022"
 
         main = PolicyPage()
         content = main.goto_policy_detail(self.coc_no).check_policy_detail(self.item)

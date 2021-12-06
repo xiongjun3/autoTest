@@ -5,6 +5,8 @@ from home_credit.page.claim_list_page import ClaimListPage
 from home_credit.page.policy_detail_page import PolicyDetailPage
 from selenium.webdriver.common.keys import Keys
 
+from home_credit.page.reimburse_list_page import ReimburseListPage
+
 
 class PolicyPage(BasePage):
 
@@ -23,6 +25,13 @@ class PolicyPage(BasePage):
         self.wait(5,ele_claim_list)
         self.find_and_click(*ele_claim_list)
         return ClaimListPage(self.driver)
+
+    def goto_reimbuser_list(self):
+        ele_reimburse_list = (By.XPATH, '//*[@title="Reimburse"]/span')
+        # 显示等待
+        self.wait(5,ele_reimburse_list)
+        self.find_and_click(*ele_reimburse_list)
+        return ReimburseListPage(self.driver)
 
 
 
@@ -57,9 +66,9 @@ class PolicyPage(BasePage):
         time.sleep(2)
         # 获取policy状态列表
         ele_list = self.driver.find_elements(By.XPATH,'//*[@class="igloo-typography-status word-wrap"]')
-        lenth = len(ele_list)
+        length = len(ele_list)
         policy_status_list = []
-        for i in range(lenth):
+        for i in range(length):
             policy_status = ele_list[i].text
             policy_status_list.append(policy_status)
         return policy_status_list
@@ -87,9 +96,9 @@ class PolicyPage(BasePage):
         ele_startdate = (By.XPATH, '//*[@class="ant-table-tbody"]/tr//td[5]')
         self.wait(5,ele_startdate)
         start_list = self.find_list(*ele_startdate)
-        lenth = len(start_list)
+        length = len(start_list)
         start_date_list = []
-        for i in range(lenth):
+        for i in range(length):
             # 循环获取列表的text属性，并拼成一个新的数组
             ele=start_list[i].text
             start_date_list.append(ele)

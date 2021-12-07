@@ -38,18 +38,10 @@ class ClaimDetailPage(BasePage):
         reason = self.find(*ele_reason).text
         return reason
 
-
-
-    def check_coc_no(self):
-        ele_coc_no = (By.XPATH,'//*[contains(text(), "COC No.")]/../../span')
-        self.wait(5,ele_coc_no)
-        coc_no = self.find(*ele_coc_no).text
-        return coc_no
-
-    def check_claim_date(self):
-        ele_coc_no = (By.XPATH,'//*[contains(text(), "Claim Date")]/../../span')
-        self.wait(5,ele_coc_no)
-        claim_date = self.find(*ele_coc_no).text
+    def check_basic_item(self,item):
+        ele_item = (By.XPATH, '//*[contains(text(), "'+item+'")]/../../span')
+        self.wait(5, ele_item)
+        claim_date = self.find(*ele_item).text
         return claim_date
 
     def check_item_value(self,role,item):

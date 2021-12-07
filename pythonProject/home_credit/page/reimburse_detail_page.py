@@ -20,12 +20,12 @@ class ReimburseDetailPage(BasePage):
         self.wait(5,ele_date)
         self.find_and_click(*ele_date)
         time.sleep(1)
-
+        # 移除input日历输入框的只读属性并输入日期
         self.move_readonly("2")
         self.find_and_send(By.ID,"reimbursement_date",date)
         self.find_and_send(By.ID,"transaction_id",payment_id)
         self.find_and_click(By.XPATH,'//*[contains(text(),"Submit")]/..')
-
+        # check complete后的状态是REIMBURSED
         ele_reimbursement_status = (By.XPATH, '//*[contains(text(),"Reimbursement Status")]/../../../div[1]/div/span')
         self.wait(5,ele_reimbursement_status)
         reimbursement_status_result = self.find(*ele_reimbursement_status).text

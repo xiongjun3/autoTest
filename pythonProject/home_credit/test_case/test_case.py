@@ -1,8 +1,5 @@
 import os
 import time
-
-import pytest
-
 from home_credit.page.admin_panel_page import AdminPanelPage
 import allure
 
@@ -12,27 +9,30 @@ class TestPolicy:
     @allure.story("搜索功能")
     def test_search(self):
         self.coc_no = "MICIHCA67497916"
+        self.insured_name = "xiong test jun"
+        self.email = "jun.xiong@iglooinsure.com"
+        self.loan_term = "6 months"
+        self.coverage_start_date = "11 / 10 / 2021"
 
         main = AdminPanelPage()
-        searchresult = main.goto_homecredit().search(self.coc_no)
-        print(searchresult)
-        assert searchresult == self.coc_no
+        coc_no,insured_name,email,loan_term,coverage_start_date= main.goto_homecredit().search_by_coc_no(self.coc_no)
+        assert coc_no == self.coc_no and insured_name == self.insured_name and email == self.email and loan_term == self.loan_term and coverage_start_date == self.coverage_start_date
 
     @allure.story("按protected状态过滤")
     def test_filter_protected(self):
         # 查找元素用的前端标签的text
         self.policy_status = "PolicyProtected"
-        #期望的policy list中的policy status
+        # 期望的policy list中的policy status
         policy_status = "PROTECTED"
 
         main = AdminPanelPage()
         policy_status_list = main.goto_homecredit().filter_policy_status(self.policy_status)
-        length=len(policy_status_list)
+        length = len(policy_status_list)
         for i in range(length):
             assert policy_status_list[i] == policy_status
 
     @allure.story("按start_date过滤")
-    def test_filter_startdate(self):
+    def test_filter_coverage_star_tdate(self):
         # 搜索时输入的start date
         self.start_date = "11 / 01 / 2021"
         # 搜索时输入的end date
@@ -42,8 +42,8 @@ class TestPolicy:
 
         main = AdminPanelPage()
         start_date_list = main.goto_homecredit().filter_start_date(self.start_date,self.end_date)
-        lenth = len(start_date_list)
-        for i in range(lenth):
+        length = len(start_date_list)
+        for i in range(length):
             assert start_date_list[i] == start_date
 
     @allure.story("上传csv文件")
@@ -65,7 +65,7 @@ class TestPolicy:
 class TestPolicyDtail:
     @allure.story("点击policy_detail页的coc文件")
     def test_view_coc(self):
-        self.policy_id="HCACOC50882728"
+        self.policy_id="HCACOC39282770"
 
         main = AdminPanelPage()
         main.goto_homecredit().goto_policy_detail(self.policy_id).click_view_coc()
@@ -172,11 +172,15 @@ class TestPolicyDtail:
 class TestClaimList:
     @allure.story("search by claim id")
     def test_search_by_cliam_id(self):
-        self.claim_id="D-HC-MICI-76181916"
+        self.claim_id = "D-HC-MICI-76181916"
+        self.coc_no = "MICIHCA75454055"
+        self.insured_name = "xiong test jun"
+        self.claimant_email = "412882383@qq.com"
+        self.claim_date = "11 / 19 / 2021"
 
         main = AdminPanelPage()
-        claim_id = main.goto_homecredit().goto_claim_list().search_by_claimid(self.claim_id)
-        assert self.claim_id == claim_id
+        claim_id,coc_no,insured_name,claimant_email,claim_date = main.goto_homecredit().goto_claim_list().search_by_claim_id(self.claim_id)
+        assert claim_id == self.claim_id and coc_no == self.coc_no and insured_name == self.insured_name and claimant_email == self.claimant_email and claim_date==self.claim_date
 
     @allure.story("search by coc no")
     def test_search_by_coc_no(self):
@@ -189,7 +193,7 @@ class TestClaimList:
             assert coc_no_list[i] == self.coc_no
 
     @allure.story("按claim_date过滤")
-    def test_filter_claimdate(self):
+    def test_filter_claim_date(self):
         # 搜索时输入的start date
         self.start_date = "11 / 19 / 2021"
         # 搜索时输入的end date
@@ -204,17 +208,17 @@ class TestClaimList:
             assert claim_date_list[i] == self.claim_date
 
     @allure.story("按protected:ClaimProcessing状态过滤")
-    def test_filter_ClaimProcessing(self):
+    def test_filter_claim_processing(self):
         # 查找元素用的前端标签的text
         self.policy_status = "ClaimProcessing"
         # 期望的policy list中的policy status
-        policy_status = "CLAIM PROCESSING"
+        claim_status = "CLAIM PROCESSING"
 
         main = AdminPanelPage()
         self.policy_status_list = main.goto_homecredit().goto_claim_list().filter_policy_status(self.policy_status)
         length = len(self.policy_status_list)
         for i in range(length):
-            assert self.policy_status_list[i] == policy_status
+            assert self.policy_status_list[i] == claim_status
 
     @allure.story("按protected:ClaimApproved状态过滤")
     def test_filter_ClaimApproved(self):
@@ -251,20 +255,22 @@ class TestClaimDetail:
 
     @allure.story("check coc no")
     def test_check_coc_no(self):
-        self.claim_id = "HC-MICI-30121781"
-        self.coc_no = "MICIHCA67497916"
+        self.claim_id = "D-HC-MICI-76181916"
+        self.item = "COC No."
+        self.coc_no = "MICIHCA75454055"
 
         main = AdminPanelPage()
-        coc_no = main.goto_homecredit().goto_claim_list().goto_claim_detail(self.claim_id).check_coc_no()
+        coc_no = main.goto_homecredit().goto_claim_list().goto_claim_detail_by_claimid(self.claim_id).check_basic_item(self.item)
         assert self.coc_no == coc_no
 
     @allure.story("check Claim Date")
     def test_check_claim_date(self):
-        self.claim_id = "HC-MICI-30121781"
-        self.claim_date = "11 / 19 / 2021"
+        self.claim_id = "HC-MICI-64908132"
+        self.item = "Claim Date"
+        self.claim_date = "11 / 29 / 2021"
 
         main = AdminPanelPage()
-        claim_date = main.goto_homecredit().goto_claim_list().goto_claim_detail(self.claim_id).check_claim_date()
+        claim_date = main.goto_homecredit().goto_claim_list().goto_claim_detail_by_claimid(self.claim_id).check_basic_item(self.item)
         assert self.claim_date == claim_date
 
     @allure.story("check full name")
@@ -535,6 +541,64 @@ class TestClaimDetail:
         main.goto_homecredit().goto_claim_list().goto_claim_detail_by_claimid(self.claim_id).check_upload_file(
             self.item)
 
+@allure.feature("reimburse_list页面功能")
+class TestReimburseList:
+
+    @allure.story("search by claim id")
+    def test_search_by_claim_id(self):
+        self.claim_id = "HC-MICI-43673798"
+        self.coc_no = "HCACOC65586238"
+        self.insure_name = "xiong jun"
+        self.claimant_email = "jun.xiong@iglooinsure.com"
+        self.approved_date = "11 / 22 / 2021"
+
+        main = AdminPanelPage()
+        claim_id,coc_no,insure_name,claimant_email,approved_date = main.goto_homecredit().goto_reimburse_list().search_by_claim_id(self.claim_id)
+        assert claim_id == self.claim_id and coc_no == self.coc_no and insure_name == self.insure_name and claimant_email == self.claimant_email and approved_date == self.approved_date
+
+    @allure.story("按approved_date过滤")
+    def test_filter_approved_date(self):
+        # 搜索时输入的start date
+        self.start_date = "12 / 06 / 2021"
+        # 搜索时输入的end date
+        self.end_date = "12 / 06 / 2021"
+        # 在start date 和end date一样的情况下，搜索结果start_date_list中的日期
+        self.approved_date = "12 / 06 / 2021"
+
+        main = AdminPanelPage()
+        approved_date_list = main.goto_homecredit().goto_reimburse_list().filter_approved_date(self.start_date,self.end_date)
+        length = len(approved_date_list)
+        for i in range(length):
+            assert approved_date_list[i] == self.approved_date
+
+    @allure.story("按status:ReimbursementProcessing状态过滤")
+    def test_filter_reimbursement_status_processing(self):
+        # 查找元素用的前端标签的text
+        self.status = "ReimbursementProcessing"
+        # 期望的policy list中的policy status
+        status = "REIMBURSEMENT PROCESSING"
+
+        main = AdminPanelPage()
+        self.status_list = main.goto_homecredit().goto_reimburse_list().filter_status(self.status)
+        length = len(self.status_list)
+        for i in range(length):
+            assert self.status_list[i] == status
+
+    @allure.story("按status:Reimbursed状态过滤")
+    def test_filter_reimbursement_status_Reimbursed(self):
+        # 查找元素用的前端标签的text
+        self.status = "Reimbursed"
+        # 期望的policy list中的policy status
+        status = "REIMBURSED"
+
+        main = AdminPanelPage()
+        self.status_list = main.goto_homecredit().goto_reimburse_list().filter_status(self.status)
+        length = len(self.status_list)
+        for i in range(length):
+            assert self.status_list[i] == status
+
+
+
 @allure.feature("reimburse_detail页面功能")
 class TestReimburseDetail:
     @allure.story("complete")
@@ -550,12 +614,12 @@ class TestReimburseDetail:
 
     @allure.story("check COC No.")
     def test_check_coc_no(self):
-        self.claim_id="HC-MICI-48440846"
+        self.claim_id="HC-MICI-49926208"
         self.item = "COC No."
-        self.content = "HCACOC65586238"
+        self.content = "MICIHCA67497916"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(self.claim_id).check_item_value(self.item)
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(self.claim_id).check_item_value(self.item)
         assert content == self.content
 
     @allure.story("check Status Updated Date")
@@ -565,7 +629,7 @@ class TestReimburseDetail:
         self.content = "12 / 06 / 2021"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(
             self.claim_id).check_item_value(self.item)
         assert content == self.content
 
@@ -576,7 +640,7 @@ class TestReimburseDetail:
         self.content = "xiongjun"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(
             self.claim_id).check_item_value(self.item)
         assert content == self.content
 
@@ -587,7 +651,7 @@ class TestReimburseDetail:
         self.content = "123456789"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(
             self.claim_id).check_item_value(self.item)
         assert content == self.content
 
@@ -598,73 +662,74 @@ class TestReimburseDetail:
         self.content = "china bank"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(
             self.claim_id).check_item_value(self.item)
         assert content == self.content
 
+    # history,REIMBURSEMENT PROCESSING状态的有三个模块，REIMBURSED状态的有6个模块
     @allure.story("check History reimbursed Reimbursement Status")
-    def test_check_reimbured_reimbursement_status(self):
+    def test_check_reimbursed_reimbursement_status(self):
         self.claim_id = "HC-MICI-48440846"
         self.n = "1"
         self.content = "REIMBURSED"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(
             self.claim_id).check_history_item(self.n)
         assert content == self.content
 
     @allure.story("check History reimbursed Last Updated")
-    def test_check_reimbured_last_update(self):
+    def test_check_reimbursed_last_update(self):
         self.claim_id = "HC-MICI-48440846"
         self.n = "2"
         self.content = "12 / 06 / 2021"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(
             self.claim_id).check_history_item(self.n)
         assert content == self.content
 
     @allure.story("check History reimbursed Updated by")
-    def test_check_reimbured_update_by(self):
+    def test_check_reimbursed_update_by(self):
         self.claim_id = "HC-MICI-48440846"
         self.n = "3"
         self.content = "jun.xiong@iglooinsure.com"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(
             self.claim_id).check_history_item(self.n)
         assert content == self.content
 
     @allure.story("check History reimbursement processing Reimbursement Status")
-    def test_check_reimburement_processing_reimbursement_status(self):
+    def test_check_reimbursement_processing_reimbursement_status(self):
         self.claim_id = "HC-MICI-48440846"
         self.n = "4"
         self.content = "REIMBURSEMENT PROCESSING"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(
             self.claim_id).check_history_item(self.n)
         assert content == self.content
 
     @allure.story("check History reimbursement processing Last Updated")
-    def test_check_reimburement_processing_last_update(self):
+    def test_check_reimbursement_processing_last_update(self):
         self.claim_id = "HC-MICI-48440846"
         self.n = "5"
         self.content = "12 / 06 / 2021"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(
             self.claim_id).check_history_item(self.n)
         assert content == self.content
 
     @allure.story("check History reimbursement processing Updated by")
-    def test_check_reimburement_processing_update_by(self):
+    def test_check_reimbursement_processing_update_by(self):
         self.claim_id = "HC-MICI-48440846"
         self.n = "6"
         self.content = "jun.xiong@iglooinsure.com"
 
         main = AdminPanelPage()
-        content = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_claimid(
+        content = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_claimid(
             self.claim_id).check_history_item(self.n)
         assert content == self.content
 

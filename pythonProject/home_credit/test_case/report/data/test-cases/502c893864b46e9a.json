@@ -1,0 +1,74 @@
+{
+  "uid" : "502c893864b46e9a",
+  "name" : "test_check_insured_gender",
+  "fullName" : "test_case.TestClaimDetail#test_check_insured_gender",
+  "historyId" : "ae6a660f7e14f1f2fa7a6b937f8ca579",
+  "time" : {
+    "start" : 1638870833363,
+    "stop" : 1638870845611,
+    "duration" : 12248
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "manage_logs",
+    "time" : {
+      "start" : 1638870444701,
+      "stop" : 1638870444701,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "check insured Identification Number"
+  }, {
+    "name" : "feature",
+    "value" : "claim_detail页面功能"
+  }, {
+    "name" : "suite",
+    "value" : "test_case"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestClaimDetail"
+  }, {
+    "name" : "host",
+    "value" : "xiongjundeMBP.lan"
+  }, {
+    "name" : "thread",
+    "value" : "36933-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "502c893864b46e9a.json",
+  "parameterValues" : [ ]
+}

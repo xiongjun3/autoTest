@@ -1,0 +1,74 @@
+{
+  "uid" : "74cf269d68ad6e4c",
+  "name" : "test_check_HCB_file",
+  "fullName" : "test_case.TestClaimDetail#test_check_HCB_file",
+  "historyId" : "d514dc6eafc3acaf2b7325359a458ad4",
+  "time" : {
+    "start" : 1638870908815,
+    "stop" : 1638870921979,
+    "duration" : 13164
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "manage_logs",
+    "time" : {
+      "start" : 1638870444701,
+      "stop" : 1638870444701,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "click Hospital Certificate Bearing picture"
+  }, {
+    "name" : "feature",
+    "value" : "claim_detail页面功能"
+  }, {
+    "name" : "suite",
+    "value" : "test_case"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestClaimDetail"
+  }, {
+    "name" : "host",
+    "value" : "xiongjundeMBP.lan"
+  }, {
+    "name" : "thread",
+    "value" : "36933-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "74cf269d68ad6e4c.json",
+  "parameterValues" : [ ]
+}

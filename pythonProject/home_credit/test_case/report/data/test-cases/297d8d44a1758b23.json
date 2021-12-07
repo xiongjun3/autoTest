@@ -1,0 +1,74 @@
+{
+  "uid" : "297d8d44a1758b23",
+  "name" : "test_check_claim_status",
+  "fullName" : "test_case.TestClaimDetail#test_check_claim_status",
+  "historyId" : "4f9498958be2d1bd2a7324890dc1a35a",
+  "time" : {
+    "start" : 1638870883630,
+    "stop" : 1638870896352,
+    "duration" : 12722
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "manage_logs",
+    "time" : {
+      "start" : 1638870444701,
+      "stop" : 1638870444701,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "check history :Updated by"
+  }, {
+    "name" : "feature",
+    "value" : "claim_detail页面功能"
+  }, {
+    "name" : "suite",
+    "value" : "test_case"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestClaimDetail"
+  }, {
+    "name" : "host",
+    "value" : "xiongjundeMBP.lan"
+  }, {
+    "name" : "thread",
+    "value" : "36933-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "297d8d44a1758b23.json",
+  "parameterValues" : [ ]
+}

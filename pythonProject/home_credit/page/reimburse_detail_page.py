@@ -25,8 +25,9 @@ class ReimburseDetailPage(BasePage):
         self.find_and_send(By.ID,"reimbursement_date",date)
         self.find_and_send(By.ID,"transaction_id",payment_id)
         self.find_and_click(By.XPATH,'//*[contains(text(),"Submit")]/..')
+        time.sleep(1)
         # check complete后的状态是REIMBURSED
-        ele_reimbursement_status = (By.XPATH, '//*[contains(text(),"Reimbursement Status")]/../../../div[1]/div/span')
+        ele_reimbursement_status = (By.XPATH, '//*[@class="ant-card-head-title"]/div/div[3]/span/span')
         self.wait(5,ele_reimbursement_status)
         reimbursement_status_result = self.find(*ele_reimbursement_status).text
         return reimbursement_status_result

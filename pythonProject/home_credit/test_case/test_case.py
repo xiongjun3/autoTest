@@ -609,7 +609,7 @@ class TestReimburseDetail:
         self.reimbursement_status_result = "REIMBURSED"
 
         main = AdminPanelPage()
-        reimbursement_status_result = main.goto_homecredit().goto_reimbuser_list().goto_reimburse_detail_by_status(self.reimburse_status).complete(self.date,self.payment_id)
+        reimbursement_status_result = main.goto_homecredit().goto_reimburse_list().goto_reimburse_detail_by_status(self.reimburse_status).complete(self.date,self.payment_id)
         assert reimbursement_status_result == self.reimbursement_status_result
 
     @allure.story("check COC No.")

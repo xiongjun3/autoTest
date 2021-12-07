@@ -1,6 +1,50 @@
 {
-  "total" : 2,
+  "total" : 6,
   "items" : [ {
+    "uid" : "86f2f60c502276b1ee88952009adf9f6",
+    "name" : "reimburse_list页面功能",
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "3077761380f046cb1279d7192bafd353",
+    "name" : "reimburse_detail页面功能",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 11,
+      "unknown" : 0,
+      "total" : 12
+    }
+  }, {
+    "uid" : "b5b21995f4edc3cab3bda233c40d745e",
+    "name" : "claim_detail页面功能",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 13,
+      "unknown" : 0,
+      "total" : 13
+    }
+  }, {
+    "uid" : "fbe7f1258d1cf2e08d75eaf819d842d1",
+    "name" : "policy_detial页面功能",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 11,
+      "unknown" : 0,
+      "total" : 11
+    }
+  }, {
     "uid" : "2be3aecf853a62cc037cb50243413180",
     "name" : "policy页面功能",
     "statistic" : {
@@ -12,15 +56,15 @@
       "total" : 5
     }
   }, {
-    "uid" : "fbe7f1258d1cf2e08d75eaf819d842d1",
-    "name" : "policy_detial页面功能",
+    "uid" : "345b6b544913eae8ad8aa07526351cc6",
+    "name" : "claim_list页面功能",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 2,
+      "passed" : 5,
       "unknown" : 0,
-      "total" : 2
+      "total" : 5
     }
   } ]
 }

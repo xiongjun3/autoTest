@@ -1,5 +1,47 @@
 {
   "uid" : "4b4757e66a1912dae1a509f688f20b0f",
   "name" : "categories",
-  "children" : [ ]
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: assert ('HC-MICI-77424235' == 'HC-MICI-43673798'\n  - HC-MICI-43673798\n  + HC-MICI-77424235)",
+      "children" : [ {
+        "name" : "test_search_by_claim_id",
+        "uid" : "6c4c23607574442a",
+        "parentUid" : "2d8b44732f24e88d67f0396c263b1768",
+        "status" : "failed",
+        "time" : {
+          "start" : 1638870921982,
+          "stop" : 1638870935611,
+          "duration" : 13629
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "2d8b44732f24e88d67f0396c263b1768"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  }, {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "AttributeError: 'PolicyPage' object has no attribute 'goto_reimbuser_list'",
+      "children" : [ {
+        "name" : "test_complete",
+        "uid" : "f46cff44368dd8fd",
+        "parentUid" : "1bcdfcd5602cfb9cc205d33b808f0813",
+        "status" : "broken",
+        "time" : {
+          "start" : 1638870985721,
+          "stop" : 1638870994741,
+          "duration" : 9020
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "1bcdfcd5602cfb9cc205d33b808f0813"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
 }

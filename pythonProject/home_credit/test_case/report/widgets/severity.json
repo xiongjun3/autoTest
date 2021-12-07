@@ -1,70 +1,500 @@
 [ {
-  "uid" : "c47e2ef8f104298",
-  "name" : "test_import_enrollment",
+  "uid" : "e75d66dddfc6987c",
+  "name" : "test_search_by_cliam_id",
   "time" : {
-    "start" : 1636705240513,
-    "stop" : 1636705259630,
-    "duration" : 19117
+    "start" : 1638870678693,
+    "stop" : 1638870691831,
+    "duration" : 13138
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "38a05a64f852dc45",
-  "name" : "test_filter_protected",
+  "uid" : "256f5bb7c92c3c74",
+  "name" : "test_check_account_no",
   "time" : {
-    "start" : 1636705210119,
-    "stop" : 1636705225056,
-    "duration" : 14937
+    "start" : 1638871031529,
+    "stop" : 1638871043868,
+    "duration" : 12339
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "35312a07f9b9bc85",
+  "uid" : "30698035b6ca77fc",
+  "name" : "test_check_address",
+  "time" : {
+    "start" : 1638870666473,
+    "stop" : 1638870678690,
+    "duration" : 12217
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6261911f54c248bd",
+  "name" : "test_check_reimbursement_processing_update_by",
+  "time" : {
+    "start" : 1638871118462,
+    "stop" : 1638871130619,
+    "duration" : 12157
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "51a5015052816793",
+  "name" : "test_check_reimbursed_last_update",
+  "time" : {
+    "start" : 1638871067961,
+    "stop" : 1638871080933,
+    "duration" : 12972
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c99cfb873d404808",
   "name" : "test_gobackto_policy_list",
   "time" : {
-    "start" : 1636705293489,
-    "stop" : 1636705307483,
-    "duration" : 13994
+    "start" : 1638870548813,
+    "stop" : 1638870562286,
+    "duration" : 13473
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "2f8141c04ae29fb6",
-  "name" : "test_logout",
+  "uid" : "e2b60b1f10e8bfac",
+  "name" : "test_reject",
   "time" : {
-    "start" : 1636705259633,
-    "stop" : 1636705275423,
-    "duration" : 15790
+    "start" : 1638870771613,
+    "stop" : 1638870785019,
+    "duration" : 13406
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "1c4660ef8128997d",
-  "name" : "test_search",
+  "uid" : "f46cff44368dd8fd",
+  "name" : "test_complete",
   "time" : {
-    "start" : 1636705196872,
-    "stop" : 1636705210116,
-    "duration" : 13244
+    "start" : 1638870985721,
+    "stop" : 1638870994741,
+    "duration" : 9020
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "bf893c6f9e213ca3",
+  "name" : "test_check_claim_date",
+  "time" : {
+    "start" : 1638870797837,
+    "stop" : 1638870809475,
+    "duration" : 11638
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "df4f5759a21fa2fc",
+  "uid" : "c5536ed8b757356b",
+  "name" : "test_search_by_coc_no",
+  "time" : {
+    "start" : 1638870691834,
+    "stop" : 1638870706406,
+    "duration" : 14572
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6c4c23607574442a",
+  "name" : "test_search_by_claim_id",
+  "time" : {
+    "start" : 1638870921982,
+    "stop" : 1638870935611,
+    "duration" : 13629
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "c371cdbe6dd8e927",
+  "name" : "test_check_coc_no",
+  "time" : {
+    "start" : 1638870785022,
+    "stop" : 1638870797834,
+    "duration" : 12812
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "297d8d44a1758b23",
+  "name" : "test_check_claim_status",
+  "time" : {
+    "start" : 1638870883630,
+    "stop" : 1638870896352,
+    "duration" : 12722
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b8dd02d8bd88ca51",
+  "name" : "test_check_coc_no",
+  "time" : {
+    "start" : 1638870994758,
+    "stop" : 1638871007302,
+    "duration" : 12544
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "502c893864b46e9a",
+  "name" : "test_check_insured_gender",
+  "time" : {
+    "start" : 1638870833363,
+    "stop" : 1638870845611,
+    "duration" : 12248
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a818624b6d4a5393",
+  "name" : "test_check_full_name",
+  "time" : {
+    "start" : 1638870809478,
+    "stop" : 1638870820919,
+    "duration" : 11441
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a0ff1a11248820c9",
+  "name" : "test_check_birth_date",
+  "time" : {
+    "start" : 1638870627612,
+    "stop" : 1638870640228,
+    "duration" : 12616
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c15a63c7aed9489b",
+  "name" : "test_filter_approved_date",
+  "time" : {
+    "start" : 1638870935666,
+    "stop" : 1638870952613,
+    "duration" : 16947
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2c79c3781cdc6a7d",
+  "name" : "test_filter_claim_processing",
+  "time" : {
+    "start" : 1638870724017,
+    "stop" : 1638870740194,
+    "duration" : 16177
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "808fe32cee1dffa8",
+  "name" : "test_check_status_update_date",
+  "time" : {
+    "start" : 1638871007306,
+    "stop" : 1638871020109,
+    "duration" : 12803
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9a0e7feaac0168e5",
+  "name" : "test_check_coverage_start_date",
+  "time" : {
+    "start" : 1638870573791,
+    "stop" : 1638870588487,
+    "duration" : 14696
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bd31abaf9b3d69c8",
+  "name" : "test_filter_claim_date",
+  "time" : {
+    "start" : 1638870706410,
+    "stop" : 1638870724014,
+    "duration" : 17604
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9d5f45a6fe6db4b9",
+  "name" : "test_check_reimbursed_update_by",
+  "time" : {
+    "start" : 1638871080935,
+    "stop" : 1638871093589,
+    "duration" : 12654
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3279b59f33f6f825",
+  "name" : "test_filter_reimbursement_status_processing",
+  "time" : {
+    "start" : 1638870952617,
+    "stop" : 1638870969544,
+    "duration" : 16927
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9f158524e2430fae",
+  "name" : "test_check_SOA_file",
+  "time" : {
+    "start" : 1638870896354,
+    "stop" : 1638870908811,
+    "duration" : 12457
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7235a1fda25d2311",
+  "name" : "test_check_bank_name",
+  "time" : {
+    "start" : 1638871043870,
+    "stop" : 1638871056094,
+    "duration" : 12224
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4d5e12a38c2ba900",
+  "name" : "test_check_loan_term",
+  "time" : {
+    "start" : 1638870562289,
+    "stop" : 1638870573789,
+    "duration" : 11500
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d897f7fbc669a553",
+  "name" : "test_approve",
+  "time" : {
+    "start" : 1638870756860,
+    "stop" : 1638870771609,
+    "duration" : 14749
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "963fce86b4fff744",
+  "name" : "test_check_reimbursment_account",
+  "time" : {
+    "start" : 1638870871383,
+    "stop" : 1638870883628,
+    "duration" : 12245
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d19366975747a53f",
+  "name" : "test_filter_protected",
+  "time" : {
+    "start" : 1638870468556,
+    "stop" : 1638870484981,
+    "duration" : 16425
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "113a3db3fa1be945",
   "name" : "test_view_coc",
   "time" : {
-    "start" : 1636705275427,
-    "stop" : 1636705293486,
-    "duration" : 18059
+    "start" : 1638870534529,
+    "stop" : 1638870548810,
+    "duration" : 14281
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "ef43e96d055f9050",
-  "name" : "test_filter_startdate",
+  "uid" : "2a9e0b5d2093d274",
+  "name" : "test_check_account_name",
   "time" : {
-    "start" : 1636705225059,
-    "stop" : 1636705240510,
-    "duration" : 15451
+    "start" : 1638871020112,
+    "stop" : 1638871031527,
+    "duration" : 11415
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ed0219baa4ade45e",
+  "name" : "test_check_full_name",
+  "time" : {
+    "start" : 1638870600375,
+    "stop" : 1638870614355,
+    "duration" : 13980
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "36aadc7d641f151",
+  "name" : "test_check_coverage_end_date",
+  "time" : {
+    "start" : 1638870588491,
+    "stop" : 1638870600373,
+    "duration" : 11882
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6d55a5f9b7aca8f9",
+  "name" : "test_filter_coverage_star_tdate",
+  "time" : {
+    "start" : 1638870484984,
+    "stop" : 1638870501813,
+    "duration" : 16829
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d3ca9d20d4fa5d03",
+  "name" : "test_check_reimbursement_processing_last_update",
+  "time" : {
+    "start" : 1638871105812,
+    "stop" : 1638871118459,
+    "duration" : 12647
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cf076c6ae2c1cc28",
+  "name" : "test_check_email",
+  "time" : {
+    "start" : 1638870654116,
+    "stop" : 1638870666470,
+    "duration" : 12354
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ca2475b4dfe48e1a",
+  "name" : "test_check_insured_full_name",
+  "time" : {
+    "start" : 1638870820922,
+    "stop" : 1638870833359,
+    "duration" : 12437
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f2a79e1b1b9d142f",
+  "name" : "test_check_claimant_mobile_no",
+  "time" : {
+    "start" : 1638870858567,
+    "stop" : 1638870871381,
+    "duration" : 12814
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "960d07e762ad0e4",
+  "name" : "test_check_claimant_full_name",
+  "time" : {
+    "start" : 1638870845614,
+    "stop" : 1638870858565,
+    "duration" : 12951
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8acb5a003d2d3c1a",
+  "name" : "test_search",
+  "time" : {
+    "start" : 1638870444701,
+    "stop" : 1638870468553,
+    "duration" : 23852
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ec5c9abe86d40871",
+  "name" : "test_check_mobile_no",
+  "time" : {
+    "start" : 1638870640231,
+    "stop" : 1638870654113,
+    "duration" : 13882
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cd99f321b4e06863",
+  "name" : "test_filter_reimbursement_status_Reimbursed",
+  "time" : {
+    "start" : 1638870969547,
+    "stop" : 1638870985718,
+    "duration" : 16171
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "860379156a3224b7",
+  "name" : "test_check_gender",
+  "time" : {
+    "start" : 1638870614359,
+    "stop" : 1638870627608,
+    "duration" : 13249
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e99dc79cb176a051",
+  "name" : "test_import_enrollment",
+  "time" : {
+    "start" : 1638870501817,
+    "stop" : 1638870518691,
+    "duration" : 16874
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4847c873c53a609a",
+  "name" : "test_check_reimbursed_reimbursement_status",
+  "time" : {
+    "start" : 1638871056097,
+    "stop" : 1638871067958,
+    "duration" : 11861
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f8e9a146410eeab5",
+  "name" : "test_filter_ClaimApproved",
+  "time" : {
+    "start" : 1638870740196,
+    "stop" : 1638870756858,
+    "duration" : 16662
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b6a756c149114863",
+  "name" : "test_check_reimbursement_processing_reimbursement_status",
+  "time" : {
+    "start" : 1638871093592,
+    "stop" : 1638871105809,
+    "duration" : 12217
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "74cf269d68ad6e4c",
+  "name" : "test_check_HCB_file",
+  "time" : {
+    "start" : 1638870908815,
+    "stop" : 1638870921979,
+    "duration" : 13164
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "161a9cec7ebad917",
+  "name" : "test_logout",
+  "time" : {
+    "start" : 1638870518694,
+    "stop" : 1638870534526,
+    "duration" : 15832
   },
   "status" : "passed",
   "severity" : "normal"

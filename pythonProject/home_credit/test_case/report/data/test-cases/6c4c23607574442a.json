@@ -1,0 +1,80 @@
+{
+  "uid" : "6c4c23607574442a",
+  "name" : "test_search_by_claim_id",
+  "fullName" : "test_case.TestReimburseList#test_search_by_claim_id",
+  "historyId" : "11422c067adeef145aab60c9b0b31771",
+  "time" : {
+    "start" : 1638870921982,
+    "stop" : 1638870935611,
+    "duration" : 13629
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert ('HC-MICI-77424235' == 'HC-MICI-43673798'\n  - HC-MICI-43673798\n  + HC-MICI-77424235)",
+  "statusTrace" : "self = <home_credit.test_case.test_case.TestReimburseList object at 0x7fe3c6cf73d0>\n\n    @allure.story(\"search by claim id\")\n    def test_search_by_claim_id(self):\n        self.claim_id = \"HC-MICI-43673798\"\n        self.coc_no = \"HCACOC65586238\"\n        self.insure_name = \"xiong jun\"\n        self.claimant_email = \"jun.xiong@iglooinsure.com\"\n        self.approved_date = \"11 / 22 / 2021\"\n    \n        main = AdminPanelPage()\n        claim_id,coc_no,insure_name,claimant_email,approved_date = main.goto_homecredit().goto_reimburse_list().search_by_claim_id(self.claim_id)\n>       assert claim_id == self.claim_id and coc_no == self.coc_no and insure_name == self.insure_name and claimant_email == self.claimant_email and approved_date == self.approved_date\nE       AssertionError: assert ('HC-MICI-77424235' == 'HC-MICI-43673798'\nE         - HC-MICI-43673798\nE         + HC-MICI-77424235)\n\ntest_case.py:557: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "manage_logs",
+    "time" : {
+      "start" : 1638870444701,
+      "stop" : 1638870444701,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "reimburse_list页面功能"
+  }, {
+    "name" : "story",
+    "value" : "search by claim id"
+  }, {
+    "name" : "suite",
+    "value" : "test_case"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestReimburseList"
+  }, {
+    "name" : "host",
+    "value" : "xiongjundeMBP.lan"
+  }, {
+    "name" : "thread",
+    "value" : "36933-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "6c4c23607574442a.json",
+  "parameterValues" : [ ]
+}

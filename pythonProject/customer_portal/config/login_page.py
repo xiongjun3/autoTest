@@ -104,8 +104,8 @@ class TestLogin:
             # 第一个参数是要写入的数据
             yaml.safe_dump(local_storage, f)
 
-    def teardown_class(self):
-        self.driver.quit()
+    # def teardown_class(self):
+    #     self.driver.quit()
 
 
 

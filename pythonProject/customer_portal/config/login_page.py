@@ -29,7 +29,7 @@ class TestLogin:
     # 则需要PageObject返回处也加一个driver参数
     _base_url = "https://homecredit.qa.axinan.com/pc/policy"
 
-    def __init__(self, base_driver: WebDriver = None):
+    def setup(self, base_driver: WebDriver = None):
         config = self.get_config()
 
         try:

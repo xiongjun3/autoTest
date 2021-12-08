@@ -25,7 +25,7 @@ class TestLogin:
         # config.read(os.path.join(os.environ['HOME'],'iselenium.ini'))
         return config
 
-    def set_config(self):
+    def test_login(self):
         config = self.get_config()
         try:
             using_headless = os.environ["using_headless"]
@@ -43,7 +43,6 @@ class TestLogin:
         self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
                                        options=chrome_options)
 
-    def test_login(self):
         url1 = "https://homecredit.qa.axinan.com/pc/login?id=bb806618-e0b2-4f1e-bb8c-24d208ce5aae"
         self.driver.get(url1)
         time.sleep(2)

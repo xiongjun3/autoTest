@@ -8,6 +8,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.remote.webdriver import WebDriver
+
 
 
 class TestLogin:
@@ -18,11 +20,16 @@ class TestLogin:
         # 用户的主目录
         homepath = os.environ['HOME']
         # os.path.join用来拼接，最终是iselenium.ini文件的路径
-        configpath = os.path.join(homepath,'iselenium.ini')
+        configpath = os.path.join(homepath, 'iselenium.ini')
         config.read(configpath)
         # config.read(os.path.join(os.environ['HOME'],'iselenium.ini'))
         return config
-    def setup_class(self):
+
+    # 防止重复初始化webdriver，需要一个构造函数，如果形参base_driver==none,就初始化一个，如果已经有driver了，就把driver赋值给base_driver
+    # 则需要PageObject返回处也加一个driver参数
+    _base_url = "https://homecredit.qa.axinan.com/pc/policy"
+
+    def __init__(self, base_driver: WebDriver = None):
         config = self.get_config()
 
         try:
@@ -37,9 +44,11 @@ class TestLogin:
             # add_argument 添加启动参数
             chrome_options.add_argument("--headless")
 
-
-        self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
+        if base_driver == None:
+            # driver前加self，让其变成一个实例变量，如是只是一个变量是传不到子类中去的
+            self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
                                            options=chrome_options)
+            self.driver.maximize_window()
 
     def test_login(self):
         url1 = "https://homecredit.qa.axinan.com/pc/login?id=bb806618-e0b2-4f1e-bb8c-24d208ce5aae"

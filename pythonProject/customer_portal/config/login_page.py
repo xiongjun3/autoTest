@@ -25,13 +25,8 @@ class TestLogin:
         # config.read(os.path.join(os.environ['HOME'],'iselenium.ini'))
         return config
 
-    # 防止重复初始化webdriver，需要一个构造函数，如果形参base_driver==none,就初始化一个，如果已经有driver了，就把driver赋值给base_driver
-    # 则需要PageObject返回处也加一个driver参数
-    _base_url = "https://homecredit.qa.axinan.com/pc/policy"
-
-    def setup(self, base_driver: WebDriver = None):
+    def set_config(self):
         config = self.get_config()
-
         try:
             using_headless = os.environ["using_headless"]
         except KeyError:
@@ -39,16 +34,14 @@ class TestLogin:
             print('没有配置环境变量 using_headless,按照有界面方式运行自动化测试')
 
         chrome_options = Options()
+
         if using_headless is not None and using_headless.lower() == 'true':
             print("使用无界面方式运行")
             # add_argument 添加启动参数
             chrome_options.add_argument("--headless")
 
-        if base_driver == None:
-            # driver前加self，让其变成一个实例变量，如是只是一个变量是传不到子类中去的
-            self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
-                                           options=chrome_options)
-            self.driver.maximize_window()
+        self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
+                                       options=chrome_options)
 
     def test_login(self):
         url1 = "https://homecredit.qa.axinan.com/pc/login?id=bb806618-e0b2-4f1e-bb8c-24d208ce5aae"

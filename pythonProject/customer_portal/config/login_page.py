@@ -1,15 +1,33 @@
+import os
 import time
 
 import yaml
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 
 class TestLogin:
     def setup_class(self):
-        self.driver = webdriver.Chrome()
+        config = self.get_config()
+
+        try:
+            using_headless = os.environ["using_headless"]
+        except KeyError:
+            using_headless = None
+            print('没有配置环境变量 using_headless,按照有界面方式运行自动化测试')
+
+        chrome_options = Options()
+        if using_headless is not None and using_headless.lower() == 'true':
+            print("使用无界面方式运行")
+            # add_argument 添加启动参数
+            chrome_options.add_argument("--headless")
+
+
+        self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
+                                           options=chrome_options)
 
     def test_login(self):
         url1 = "https://homecredit.qa.axinan.com/pc/login?id=bb806618-e0b2-4f1e-bb8c-24d208ce5aae"
@@ -56,7 +74,7 @@ class TestLogin:
         # 获取到验证码后，登陆
         self.driver.get(url1)
         ele_opt = (By.ID, "otp")
-        WebDriverWait(self.driver, 10, 0.5).until(expected_conditions.element_to_be_clickable(ele_opt))
+        WebDriverWait(self.driver, 20, 0.5).until(expected_conditions.element_to_be_clickable(ele_opt))
 
         self.driver.find_element(By.ID, "otp").send_keys(OPT_code)
         self.driver.find_element(By.XPATH, '//*[@class="ant-btn ant-btn-primary igloo-login-button"]').click()

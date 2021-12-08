@@ -1,3 +1,4 @@
+import configparser
 import os
 import time
 
@@ -10,6 +11,17 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 class TestLogin:
+    def get_config(self):
+        # python3里面自带configparser模块来读取ini文件
+        # 读取iselenium中的Chrome driver的路径，不然执行的时候会报错
+        config = configparser.ConfigParser()
+        # 用户的主目录
+        homepath = os.environ['HOME']
+        # os.path.join用来拼接，最终是iselenium.ini文件的路径
+        configpath = os.path.join(homepath,'iselenium.ini')
+        config.read(configpath)
+        # config.read(os.path.join(os.environ['HOME'],'iselenium.ini'))
+        return config
     def setup_class(self):
         config = self.get_config()
 

@@ -108,7 +108,6 @@ class BasePage:
 
     def filter_date(self,start_date,end_date):
         ele_filter = (By.XPATH, '//*[@class="ant-btn igloo-form-filter-filter-button"]')
-        # 显示等待
         self.wait(5,ele_filter)
         self.find_and_click(*ele_filter)
 
@@ -125,7 +124,7 @@ class BasePage:
         self.driver.find_element(By.XPATH,'//*[@placeholder="End date"]').send_keys(end_date)
         #点击apply按钮
         self.driver.find_element(By.XPATH, '//*[@class="igloo-form-filter-drop-down-footer"]/div/div[2]').click()
-        time.sleep(5)
+        time.sleep(8)
         # 获取claim date 列表
         ele_claim_date = (By.XPATH, '//*[@class="ant-table-tbody"]/tr//td[5]')
         self.wait(5,ele_claim_date)

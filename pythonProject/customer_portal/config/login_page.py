@@ -1,47 +1,17 @@
-import configparser
-import os
 import time
-
 import yaml
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.remote.webdriver import WebDriver
 
 
 
 class TestLogin:
-    def get_config(self):
-        # python3里面自带configparser模块来读取ini文件
-        # 读取iselenium中的Chrome driver的路径，不然执行的时候会报错
-        config = configparser.ConfigParser()
-        # 用户的主目录
-        homepath = os.environ['HOME']
-        # os.path.join用来拼接，最终是iselenium.ini文件的路径
-        configpath = os.path.join(homepath, 'iselenium.ini')
-        config.read(configpath)
-        # config.read(os.path.join(os.environ['HOME'],'iselenium.ini'))
-        return config
+    def setup_class(self):
+        self.driver = webdriver.Chrome()
 
     def test_login(self):
-        config = self.get_config()
-        try:
-            using_headless = os.environ["using_headless"]
-        except KeyError:
-            using_headless = None
-            print('没有配置环境变量 using_headless,按照有界面方式运行自动化测试')
-
-        chrome_options = Options()
-
-        if using_headless is not None and using_headless.lower() == 'true':
-            print("使用无界面方式运行")
-            # add_argument 添加启动参数
-            chrome_options.add_argument("--headless")
-
-        self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
-                                       options=chrome_options)
 
         url1 = "https://homecredit.qa.axinan.com/pc/login?id=bb806618-e0b2-4f1e-bb8c-24d208ce5aae"
         self.driver.get(url1)
@@ -70,7 +40,7 @@ class TestLogin:
         # 点击下一步登陆
         self.driver.find_element(By.ID, "passwordNext").click()
 
-        time.sleep(5)
+        time.sleep(7)
         ele_email_1 = (By.XPATH, '//*[@id=":1k"]/tbody/tr[1]')
         WebDriverWait(self.driver, 10, 0.5).until(expected_conditions.element_to_be_clickable(ele_email_1))
         # 进入收件箱，点击进入第一封邮件详情
@@ -103,8 +73,8 @@ class TestLogin:
             # 第一个参数是要写入的数据
             yaml.safe_dump(local_storage, f)
 
-    # def teardown_class(self):
-    #     self.driver.quit()
+    def teardown_class(self):
+        self.driver.quit()
 
 
 

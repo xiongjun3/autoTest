@@ -15,8 +15,11 @@ class ClaimFormPage(BasePage):
         #选择id_type
 
         #鼠标移动到下拉框隐藏的选项
-        ActionChains(self.driver).move_to_element(self.find(By.CSS_SELECTOR, '[label="'+insured_id_type+'"]')).send_keys(Keys.UP).perform()
-        self.find_and_click(By.CSS_SELECTOR, "[label='"+insured_id_type+"']")
+        self.move_to_element_click(insured_id_type)
+
+        # ActionChains(self.driver).move_to_element(self.find(By.CSS_SELECTOR, '[label="'+insured_id_type+'"]')).send_keys(Keys.UP).perform()
+        # self.find_and_click(By.CSS_SELECTOR, "[label='"+insured_id_type+"']")
+
         # 输入id_no
         self.find_and_send(By.XPATH, '//*[@id="insured_identificationNumber"]', insured_id_no)
         # 点击continue
@@ -66,7 +69,7 @@ class ClaimFormPage(BasePage):
 
         #提交成功页面，获取页面上的claim id
         ele_claim_id=(By.XPATH, '//*[contains(text(),"Claim ID:")]')
-        self.wait(5,ele_claim_id)
+        self.wait(10,ele_claim_id)
         claim_id_string = self.find(*ele_claim_id).text
         print(claim_id_string)
         claim_id=claim_id_string[10:]

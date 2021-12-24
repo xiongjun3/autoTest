@@ -119,7 +119,7 @@ class TestClaimForm:
 
         self.coc_no = "HCACOC65586238"
         self.insured_id_no = "0000011111"
-        self.insured_id_type = "Senior Citizen Card"
+        self.insured_id_type = "National ID"
         self.relationship = "Spouse"
         self.claimant_first_name = "li"
         self.claimant_middle_name = "test"

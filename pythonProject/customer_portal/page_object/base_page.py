@@ -3,7 +3,10 @@ import os
 import time
 import yaml
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -108,3 +111,20 @@ class BasePage:
 
     def teardown_module(self):
         self.driver.quit()
+
+    # 封装滑动查找下拉框内的元素的方法
+    def move_to_element_click(self,text,num=5):
+        for i in range(num):
+            try:
+                self.driver.find_element(By.CSS_SELECTOR, "[label='" + text + "']").click()
+                return
+            except:
+                print("没有找到，请滑一下")
+                ActionChains(self.driver).move_to_element(
+                    self.driver.find_element(By.CSS_SELECTOR, '[label="' + text + '"]')).send_keys(Keys.UP).perform()
+                self.driver.find_element(By.CSS_SELECTOR, "[label='" + text + "']").click()
+
+            if i == num-1:
+                raise NoSuchElementException(f"找了{num}次，未找到")
+
+
